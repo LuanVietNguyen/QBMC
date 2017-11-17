@@ -1,0 +1,52 @@
+-- Created by Hyst v1.18
+-- Hybrid Automaton in HyComp
+-- Converted from file: example_paper.xml
+-- Command Line arguments: example_paper.xml -hycomp -o example_paper.hydi
+
+
+MODULE main
+VAR
+  instance: sys1;
+
+MODULE sys1
+--Vars
+VAR
+  --Locations are encoded as a variable with a finite (enumeration / set) type.
+  location: {locA, locB};
+  x: continuous;
+
+DEFINE
+  a1 :=0.0;
+  b1 :=1.0;
+  a2 :=0.0;
+  b2 :=2.0;
+
+-- start locations
+-- locA
+FLOW
+  (location = locA -> (der(x)>=a1 & der(x)<=b1));
+-- end locA
+
+-- locB
+FLOW
+  (location = locB -> (der(x)>=a2 & der(x)<=b2));
+-- end locB
+--invariants are printed all together with implications on locations, etc.
+INVAR
+  (location = locA -> x <= 5.0)&
+  (location = locB -> x <= 10.0);
+-- end modes
+
+TRANS
+  -- locA -> locB (1 -> 2)
+    (location = locA & x >= 2.5 & next(location) = locB &(next(x) = x)) 
+
+  -- locB -> locA (2 -> 1)
+     | (location = locB & x >= 10.0 & next(location) = locA &(next(x) = 0.0)) 
+  ;
+
+INIT
+  location = locA  & x = 0.0;
+
+INVARSPEC 
+  !(location = locB & x < 2.5);

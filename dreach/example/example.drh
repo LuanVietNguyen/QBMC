@@ -1,0 +1,54 @@
+// Created by Hyst v1.2
+// Hybrid Automaton in dReach
+// Converted from file: example_paper.xml
+// Command Line arguments: example_paper.xml -dreach -o example_paper_hybrid.drh
+
+
+//Vars
+[0, 25] time;
+[-1000,1000] x;
+[0 1] rate1;
+[0 2] rate2;
+
+
+
+// start modes
+// locA
+{
+  mode 1;
+  invt:
+    (x <= 5.0);
+  flow:
+    d/dt[x] = rate1;
+    d/dt[rate1] = 0.0;
+    d/dt[rate2] = 0.0;
+
+  jump:
+    // locA -> locB (1 -> 2)
+      (x >= 2.5) ==> @2(and (x' = x) (rate1' = rate1) (rate2' = rate2));
+
+  // end locA
+}
+
+// locB
+{
+  mode 2;
+  invt:
+    (x <= 10.0);
+  flow:
+    d/dt[x] = rate2;
+    d/dt[rate1] = 0.0;
+    d/dt[rate2] = 0.0;
+
+  jump:
+    // locB -> locA (2 -> 1)
+      (x >= 10.0) ==> @1(and (x' = 0.0) (rate1' = rate1) (rate2' = rate2));
+
+  // end locB
+}
+// end modes
+
+init:
+@1 (x = 0);
+goal:
+@2 (x < 2.5);

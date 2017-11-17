@@ -1,0 +1,202 @@
+ForAll(tbv,
+       Exists([cur_fischer_agent_1_x,
+               next_fischer_agent_1_x,
+               cur_fischer_agent_1_i,
+               next_fischer_agent_1_i,
+               cur_g,
+               next_g,
+               cur_v,
+               next_v,
+               cur_fischer_agent_2_x,
+               next_fischer_agent_2_x,
+               cur_fischer_agent_2_i,
+               next_fischer_agent_2_i,
+               cur_t,
+               next_t,
+               cur_fischer_agent_3_x,
+               next_fischer_agent_3_x,
+               cur_fischer_agent_3_i,
+               next_fischer_agent_3_i,
+               cur_mode,
+               next_mode,
+               time],
+              And(And(RNE() == 0,
+                      RNE() == 1,
+                      RNE() == 0,
+                      True,
+                      True,
+                      True,
+                      RNE() == 0,
+                      RNE() == 2,
+                      RNE() == 0,
+                      RNE() == 3,
+                      RNE() == 0,
+                      RNE() == 0,
+                      RNE() == 0,
+                      RNE() == 73),
+                  Or(And(And(Implies(cur_mode == 0,
+                                     Or(And(cur_g == 0,
+                                        And(next_fischer_agent_1_x ==
+                                        0,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_x ==
+                                        cur_fischer_agent_2_x,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_x ==
+                                        cur_fischer_agent_3_x,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 321)),
+                                        And(cur_g == 0,
+                                        And(next_fischer_agent_2_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_x ==
+                                        cur_fischer_agent_3_x,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 40)),
+                                        And(cur_g == 0,
+                                        And(next_fischer_agent_3_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_x ==
+                                        cur_fischer_agent_2_x,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 5)))),
+                             Implies(cur_mode == 1,
+                                     Or(And(cur_g == 0,
+                                        And(next_fischer_agent_1_x ==
+                                        0,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_x ==
+                                        cur_fischer_agent_2_x,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_x ==
+                                        cur_fischer_agent_3_x,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 322)),
+                                        And(cur_g == 0,
+                                        And(next_fischer_agent_2_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_x ==
+                                        cur_fischer_agent_3_x,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 41)),
+                                        And(cur_g == 0,
+                                        And(next_fischer_agent_3_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_x ==
+                                        cur_fischer_agent_2_x,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 3)))),
+                             Implies(cur_mode == 2,
+                                     Or(And(cur_g == 0,
+                                        And(next_fischer_agent_1_x ==
+                                        0,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_x ==
+                                        cur_fischer_agent_2_x,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_x ==
+                                        cur_fischer_agent_3_x,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 323)),
+                                        And(cur_g == 0,
+                                        And(next_fischer_agent_2_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_x ==
+                                        cur_fischer_agent_3_x,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 42)),
+                                        And(cur_v == 0,
+                                        And(next_fischer_agent_3_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+                                        next_v == cur_v,
+                                        next_fischer_agent_2_x ==
+                                        cur_fischer_agent_2_x,
+                                        next_fischer_agent_2_i ==
+                                        cur_fischer_agent_2_i,
+                                        next_t == cur_t,
+                                        next_fischer_agent_3_i ==
+                                        cur_fischer_agent_3_i,
+                                        next_mode == 4)),
+                                        And(cur_v == 1,
+                                        And(next_fischer_agent_3_x ==
+                                        0,
+                                        next_fischer_agent_1_x ==
+                                        cur_fischer_agent_1_x,
+                                        next_fischer_agent_1_i ==
+                                        cur_fischer_agent_1_i,
+                                        next_g == cur_g,
+...
+unsat

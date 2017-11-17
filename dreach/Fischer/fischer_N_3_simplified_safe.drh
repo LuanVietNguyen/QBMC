@@ -1,0 +1,2133 @@
+// Hyst v1.18
+// Hybrid Automaton in dReach
+// Converted from file: fischer_N_3_simplified.xml
+// Command Line arguments: fischer_N_3_simplified.xml fischer_N_3_simplified_safe.cfg -dreach -o fischer_N_3_simplified.drh
+
+
+//Vars
+[0, 1000] time;
+[-1000,1000] fischer_agent_1_x;
+[-1000,1000] fischer_agent_1_i;
+[-1000,1000] g;
+[-1000,1000] fischer_agent_2_x;
+[-1000,1000] fischer_agent_2_i;
+[-1000,1000] clock;
+[-1000,1000] fischer_agent_3_x;
+[-1000,1000] fischer_agent_3_i;
+
+#define A	5.0
+#define B	70.0
+#define rate	1.0
+
+
+// start modes
+// cs_cs_default_cs
+{
+  mode 1;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_cs_default_cs -> cs_cs_default_cs (1 -> 1)
+      (true) ==> @1(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_cs_default_cs -> rem_rem_default_rem (1 -> 22)
+      (true) ==> @22(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = 0.0) (g' = 0.0) (fischer_agent_3_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_cs_default_cs
+}
+
+// cs_cs_default_rem
+{
+  mode 2;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_cs_default_rem -> cs_cs_default_try (2 -> 3)
+      (g = 0.0) ==> @3(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_cs_default_rem -> cs_cs_default_rem (2 -> 2)
+      (true) ==> @2(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_cs_default_rem
+}
+
+// cs_cs_default_try
+{
+  mode 3;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_cs_default_try -> cs_cs_default_try (3 -> 3)
+      (true) ==> @3(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_cs_default_try -> cs_cs_default_waits (3 -> 4)
+      (true) ==> @4(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_cs_default_try
+}
+
+// cs_cs_default_waits
+{
+  mode 4;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_cs_default_waits -> cs_cs_default_cs (4 -> 1)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @1(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_cs_default_waits -> cs_cs_default_rem (4 -> 2)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @2(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_cs_default_waits -> cs_cs_default_rem (4 -> 2)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @2(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_cs_default_waits -> cs_cs_default_waits (4 -> 4)
+      (true) ==> @4(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_cs_default_waits
+}
+
+// cs_rem_default_cs
+{
+  mode 5;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_rem_default_cs -> cs_try_default_cs (5 -> 9)
+      (g = 0.0) ==> @9(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_cs -> cs_rem_default_cs (5 -> 5)
+      (true) ==> @5(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_rem_default_cs
+}
+
+// cs_rem_default_rem
+{
+  mode 6;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_rem_default_rem -> cs_try_default_rem (6 -> 10)
+      (g = 0.0) ==> @10(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_rem -> cs_rem_default_try (6 -> 7)
+      (g = 0.0) ==> @7(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_rem -> cs_rem_default_rem (6 -> 6)
+      (true) ==> @6(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_rem_default_rem
+}
+
+// cs_rem_default_try
+{
+  mode 7;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_rem_default_try -> cs_try_default_try (7 -> 11)
+      (g = 0.0) ==> @11(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_try -> cs_rem_default_try (7 -> 7)
+      (true) ==> @7(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_try -> cs_rem_default_waits (7 -> 8)
+      (true) ==> @8(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_rem_default_try
+}
+
+// cs_rem_default_waits
+{
+  mode 8;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_rem_default_waits -> cs_try_default_waits (8 -> 12)
+      (g = 0.0) ==> @12(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_waits -> cs_rem_default_cs (8 -> 5)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @5(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_waits -> cs_rem_default_rem (8 -> 6)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @6(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_waits -> cs_rem_default_rem (8 -> 6)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @6(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_rem_default_waits -> cs_rem_default_waits (8 -> 8)
+      (true) ==> @8(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_rem_default_waits
+}
+
+// cs_try_default_cs
+{
+  mode 9;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_try_default_cs -> cs_try_default_cs (9 -> 9)
+      (true) ==> @9(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_cs -> cs_waits_default_cs (9 -> 13)
+      (true) ==> @13(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_try_default_cs
+}
+
+// cs_try_default_rem
+{
+  mode 10;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_try_default_rem -> cs_try_default_try (10 -> 11)
+      (g = 0.0) ==> @11(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_rem -> cs_try_default_rem (10 -> 10)
+      (true) ==> @10(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_rem -> cs_waits_default_rem (10 -> 14)
+      (true) ==> @14(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_try_default_rem
+}
+
+// cs_try_default_try
+{
+  mode 11;
+  invt:
+    (and (fischer_agent_2_x <= A) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_try_default_try -> cs_try_default_try (11 -> 11)
+      (true) ==> @11(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_try -> cs_waits_default_try (11 -> 15)
+      (true) ==> @15(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_try -> cs_try_default_waits (11 -> 12)
+      (true) ==> @12(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_try_default_try
+}
+
+// cs_try_default_waits
+{
+  mode 12;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_try_default_waits -> cs_try_default_cs (12 -> 9)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @9(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_waits -> cs_try_default_rem (12 -> 10)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @10(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_waits -> cs_try_default_rem (12 -> 10)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @10(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_waits -> cs_try_default_waits (12 -> 12)
+      (true) ==> @12(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_try_default_waits -> cs_waits_default_waits (12 -> 16)
+      (true) ==> @16(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_try_default_waits
+}
+
+// cs_waits_default_cs
+{
+  mode 13;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_waits_default_cs -> cs_cs_default_cs (13 -> 1)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @1(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_cs -> cs_rem_default_cs (13 -> 5)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @5(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_cs -> cs_rem_default_cs (13 -> 5)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @5(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_cs -> cs_waits_default_cs (13 -> 13)
+      (true) ==> @13(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_waits_default_cs
+}
+
+// cs_waits_default_rem
+{
+  mode 14;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_waits_default_rem -> cs_cs_default_rem (14 -> 2)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @2(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_rem -> cs_rem_default_rem (14 -> 6)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @6(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_rem -> cs_rem_default_rem (14 -> 6)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @6(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_rem -> cs_waits_default_try (14 -> 15)
+      (g = 0.0) ==> @15(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_rem -> cs_waits_default_rem (14 -> 14)
+      (true) ==> @14(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_waits_default_rem
+}
+
+// cs_waits_default_try
+{
+  mode 15;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_waits_default_try -> cs_cs_default_try (15 -> 3)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @3(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_try -> cs_rem_default_try (15 -> 7)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @7(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_try -> cs_rem_default_try (15 -> 7)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @7(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_try -> cs_waits_default_try (15 -> 15)
+      (true) ==> @15(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_try -> cs_waits_default_waits (15 -> 16)
+      (true) ==> @16(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_waits_default_try
+}
+
+// cs_waits_default_waits
+{
+  mode 16;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // cs_waits_default_waits -> cs_cs_default_waits (16 -> 4)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @4(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_waits -> cs_rem_default_waits (16 -> 8)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @8(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_waits -> cs_rem_default_waits (16 -> 8)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @8(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_waits -> cs_waits_default_cs (16 -> 13)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @13(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_waits -> cs_waits_default_rem (16 -> 14)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @14(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_waits -> cs_waits_default_rem (16 -> 14)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @14(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // cs_waits_default_waits -> cs_waits_default_waits (16 -> 16)
+      (true) ==> @16(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end cs_waits_default_waits
+}
+
+// rem_cs_default_cs
+{
+  mode 17;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_cs_default_cs -> try_cs_default_cs (17 -> 33)
+      (g = 0.0) ==> @33(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_cs -> rem_cs_default_cs (17 -> 17)
+      (true) ==> @17(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_cs_default_cs
+}
+
+// rem_cs_default_rem
+{
+  mode 18;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_cs_default_rem -> try_cs_default_rem (18 -> 34)
+      (g = 0.0) ==> @34(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_rem -> rem_cs_default_try (18 -> 19)
+      (g = 0.0) ==> @19(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_rem -> rem_cs_default_rem (18 -> 18)
+      (true) ==> @18(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_cs_default_rem
+}
+
+// rem_cs_default_try
+{
+  mode 19;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_cs_default_try -> try_cs_default_try (19 -> 35)
+      (g = 0.0) ==> @35(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_try -> rem_cs_default_try (19 -> 19)
+      (true) ==> @19(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_try -> rem_cs_default_waits (19 -> 20)
+      (true) ==> @20(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_cs_default_try
+}
+
+// rem_cs_default_waits
+{
+  mode 20;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_cs_default_waits -> try_cs_default_waits (20 -> 36)
+      (g = 0.0) ==> @36(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_waits -> rem_cs_default_cs (20 -> 17)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @17(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_waits -> rem_cs_default_rem (20 -> 18)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @18(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_waits -> rem_cs_default_rem (20 -> 18)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @18(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_cs_default_waits -> rem_cs_default_waits (20 -> 20)
+      (true) ==> @20(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_cs_default_waits
+}
+
+// rem_rem_default_cs
+{
+  mode 21;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_rem_default_cs -> try_rem_default_cs (21 -> 37)
+      (g = 0.0) ==> @37(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_cs -> rem_try_default_cs (21 -> 25)
+      (g = 0.0) ==> @25(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_cs -> rem_rem_default_cs (21 -> 21)
+      (true) ==> @21(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_rem_default_cs
+}
+
+// rem_rem_default_rem
+{
+  mode 22;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_rem_default_rem -> try_rem_default_rem (22 -> 38)
+      (g = 0.0) ==> @38(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_rem -> rem_try_default_rem (22 -> 26)
+      (g = 0.0) ==> @26(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_rem -> rem_rem_default_try (22 -> 23)
+      (g = 0.0) ==> @23(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_rem -> rem_rem_default_rem (22 -> 22)
+      (true) ==> @22(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_rem_default_rem
+}
+
+// rem_rem_default_try
+{
+  mode 23;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_rem_default_try -> try_rem_default_try (23 -> 39)
+      (g = 0.0) ==> @39(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_try -> rem_try_default_try (23 -> 27)
+      (g = 0.0) ==> @27(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_try -> rem_rem_default_try (23 -> 23)
+      (true) ==> @23(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_try -> rem_rem_default_waits (23 -> 24)
+      (true) ==> @24(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_rem_default_try
+}
+
+// rem_rem_default_waits
+{
+  mode 24;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_rem_default_waits -> try_rem_default_waits (24 -> 40)
+      (g = 0.0) ==> @40(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_waits -> rem_try_default_waits (24 -> 28)
+      (g = 0.0) ==> @28(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_waits -> rem_rem_default_cs (24 -> 21)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @21(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_waits -> rem_rem_default_rem (24 -> 22)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @22(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_waits -> rem_rem_default_rem (24 -> 22)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @22(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_rem_default_waits -> rem_rem_default_waits (24 -> 24)
+      (true) ==> @24(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_rem_default_waits
+}
+
+// rem_try_default_cs
+{
+  mode 25;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_try_default_cs -> try_try_default_cs (25 -> 41)
+      (g = 0.0) ==> @41(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_cs -> rem_try_default_cs (25 -> 25)
+      (true) ==> @25(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_cs -> rem_waits_default_cs (25 -> 29)
+      (true) ==> @29(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_try_default_cs
+}
+
+// rem_try_default_rem
+{
+  mode 26;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_try_default_rem -> try_try_default_rem (26 -> 42)
+      (g = 0.0) ==> @42(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_rem -> rem_try_default_try (26 -> 27)
+      (g = 0.0) ==> @27(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_rem -> rem_try_default_rem (26 -> 26)
+      (true) ==> @26(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_rem -> rem_waits_default_rem (26 -> 30)
+      (true) ==> @30(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_try_default_rem
+}
+
+// rem_try_default_try
+{
+  mode 27;
+  invt:
+    (and (fischer_agent_2_x <= A) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_try_default_try -> try_try_default_try (27 -> 43)
+      (g = 0.0) ==> @43(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_try -> rem_try_default_try (27 -> 27)
+      (true) ==> @27(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_try -> rem_waits_default_try (27 -> 31)
+      (true) ==> @31(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_try -> rem_try_default_waits (27 -> 28)
+      (true) ==> @28(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_try_default_try
+}
+
+// rem_try_default_waits
+{
+  mode 28;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_try_default_waits -> try_try_default_waits (28 -> 44)
+      (g = 0.0) ==> @44(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_waits -> rem_try_default_cs (28 -> 25)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @25(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_waits -> rem_try_default_rem (28 -> 26)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @26(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_waits -> rem_try_default_rem (28 -> 26)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @26(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_waits -> rem_try_default_waits (28 -> 28)
+      (true) ==> @28(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_try_default_waits -> rem_waits_default_waits (28 -> 32)
+      (true) ==> @32(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_try_default_waits
+}
+
+// rem_waits_default_cs
+{
+  mode 29;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_waits_default_cs -> try_waits_default_cs (29 -> 45)
+      (g = 0.0) ==> @45(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_cs -> rem_cs_default_cs (29 -> 17)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @17(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_cs -> rem_rem_default_cs (29 -> 21)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @21(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_cs -> rem_rem_default_cs (29 -> 21)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @21(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_cs -> rem_waits_default_cs (29 -> 29)
+      (true) ==> @29(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_waits_default_cs
+}
+
+// rem_waits_default_rem
+{
+  mode 30;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_waits_default_rem -> try_waits_default_rem (30 -> 46)
+      (g = 0.0) ==> @46(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_rem -> rem_cs_default_rem (30 -> 18)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @18(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_rem -> rem_rem_default_rem (30 -> 22)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @22(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_rem -> rem_rem_default_rem (30 -> 22)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @22(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_rem -> rem_waits_default_try (30 -> 31)
+      (g = 0.0) ==> @31(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_rem -> rem_waits_default_rem (30 -> 30)
+      (true) ==> @30(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_waits_default_rem
+}
+
+// rem_waits_default_try
+{
+  mode 31;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_waits_default_try -> try_waits_default_try (31 -> 47)
+      (g = 0.0) ==> @47(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_try -> rem_cs_default_try (31 -> 19)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @19(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_try -> rem_rem_default_try (31 -> 23)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @23(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_try -> rem_rem_default_try (31 -> 23)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @23(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_try -> rem_waits_default_try (31 -> 31)
+      (true) ==> @31(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_try -> rem_waits_default_waits (31 -> 32)
+      (true) ==> @32(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_waits_default_try
+}
+
+// rem_waits_default_waits
+{
+  mode 32;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = 0.0;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // rem_waits_default_waits -> try_waits_default_waits (32 -> 48)
+      (g = 0.0) ==> @48(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_cs_default_waits (32 -> 20)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @20(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_rem_default_waits (32 -> 24)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @24(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_rem_default_waits (32 -> 24)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @24(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_waits_default_cs (32 -> 29)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @29(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_waits_default_rem (32 -> 30)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @30(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_waits_default_rem (32 -> 30)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @30(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // rem_waits_default_waits -> rem_waits_default_waits (32 -> 32)
+      (true) ==> @32(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end rem_waits_default_waits
+}
+
+// try_cs_default_cs
+{
+  mode 33;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_cs_default_cs -> try_cs_default_cs (33 -> 33)
+      (true) ==> @33(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_cs -> waits_cs_default_cs (33 -> 49)
+      (true) ==> @49(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_cs_default_cs
+}
+
+// try_cs_default_rem
+{
+  mode 34;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_cs_default_rem -> try_cs_default_try (34 -> 35)
+      (g = 0.0) ==> @35(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_rem -> try_cs_default_rem (34 -> 34)
+      (true) ==> @34(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_rem -> waits_cs_default_rem (34 -> 50)
+      (true) ==> @50(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_cs_default_rem
+}
+
+// try_cs_default_try
+{
+  mode 35;
+  invt:
+    (and (fischer_agent_1_x <= A) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_cs_default_try -> try_cs_default_try (35 -> 35)
+      (true) ==> @35(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_try -> waits_cs_default_try (35 -> 51)
+      (true) ==> @51(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_try -> try_cs_default_waits (35 -> 36)
+      (true) ==> @36(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_cs_default_try
+}
+
+// try_cs_default_waits
+{
+  mode 36;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_cs_default_waits -> try_cs_default_cs (36 -> 33)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @33(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_waits -> try_cs_default_rem (36 -> 34)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @34(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_waits -> try_cs_default_rem (36 -> 34)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @34(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_waits -> try_cs_default_waits (36 -> 36)
+      (true) ==> @36(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_cs_default_waits -> waits_cs_default_waits (36 -> 52)
+      (true) ==> @52(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_cs_default_waits
+}
+
+// try_rem_default_cs
+{
+  mode 37;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_rem_default_cs -> try_try_default_cs (37 -> 41)
+      (g = 0.0) ==> @41(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_cs -> try_rem_default_cs (37 -> 37)
+      (true) ==> @37(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_cs -> waits_rem_default_cs (37 -> 53)
+      (true) ==> @53(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_rem_default_cs
+}
+
+// try_rem_default_rem
+{
+  mode 38;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_rem_default_rem -> try_try_default_rem (38 -> 42)
+      (g = 0.0) ==> @42(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_rem -> try_rem_default_try (38 -> 39)
+      (g = 0.0) ==> @39(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_rem -> try_rem_default_rem (38 -> 38)
+      (true) ==> @38(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_rem -> waits_rem_default_rem (38 -> 54)
+      (true) ==> @54(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_rem_default_rem
+}
+
+// try_rem_default_try
+{
+  mode 39;
+  invt:
+    (and (fischer_agent_1_x <= A) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_rem_default_try -> try_try_default_try (39 -> 43)
+      (g = 0.0) ==> @43(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_try -> try_rem_default_try (39 -> 39)
+      (true) ==> @39(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_try -> waits_rem_default_try (39 -> 55)
+      (true) ==> @55(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_try -> try_rem_default_waits (39 -> 40)
+      (true) ==> @40(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_rem_default_try
+}
+
+// try_rem_default_waits
+{
+  mode 40;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_rem_default_waits -> try_try_default_waits (40 -> 44)
+      (g = 0.0) ==> @44(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_waits -> try_rem_default_cs (40 -> 37)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @37(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_waits -> try_rem_default_rem (40 -> 38)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @38(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_waits -> try_rem_default_rem (40 -> 38)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @38(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_waits -> try_rem_default_waits (40 -> 40)
+      (true) ==> @40(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_rem_default_waits -> waits_rem_default_waits (40 -> 56)
+      (true) ==> @56(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_rem_default_waits
+}
+
+// try_try_default_cs
+{
+  mode 41;
+  invt:
+    (and (fischer_agent_1_x <= A) (fischer_agent_2_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_try_default_cs -> try_try_default_cs (41 -> 41)
+      (true) ==> @41(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_cs -> waits_try_default_cs (41 -> 57)
+      (true) ==> @57(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_cs -> try_waits_default_cs (41 -> 45)
+      (true) ==> @45(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_try_default_cs
+}
+
+// try_try_default_rem
+{
+  mode 42;
+  invt:
+    (and (fischer_agent_1_x <= A) (fischer_agent_2_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_try_default_rem -> try_try_default_try (42 -> 43)
+      (g = 0.0) ==> @43(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_rem -> try_try_default_rem (42 -> 42)
+      (true) ==> @42(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_rem -> waits_try_default_rem (42 -> 58)
+      (true) ==> @58(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_rem -> try_waits_default_rem (42 -> 46)
+      (true) ==> @46(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_try_default_rem
+}
+
+// try_try_default_try
+{
+  mode 43;
+  invt:
+    (and (and (fischer_agent_1_x <= A) (fischer_agent_2_x <= A)) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_try_default_try -> try_try_default_try (43 -> 43)
+      (true) ==> @43(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_try -> waits_try_default_try (43 -> 59)
+      (true) ==> @59(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_try -> try_waits_default_try (43 -> 47)
+      (true) ==> @47(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_try -> try_try_default_waits (43 -> 44)
+      (true) ==> @44(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_try_default_try
+}
+
+// try_try_default_waits
+{
+  mode 44;
+  invt:
+    (and (fischer_agent_1_x <= A) (fischer_agent_2_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_try_default_waits -> try_try_default_cs (44 -> 41)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @41(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_waits -> try_try_default_rem (44 -> 42)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @42(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_waits -> try_try_default_rem (44 -> 42)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @42(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_waits -> try_try_default_waits (44 -> 44)
+      (true) ==> @44(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_waits -> waits_try_default_waits (44 -> 60)
+      (true) ==> @60(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_try_default_waits -> try_waits_default_waits (44 -> 48)
+      (true) ==> @48(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_try_default_waits
+}
+
+// try_waits_default_cs
+{
+  mode 45;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_waits_default_cs -> try_cs_default_cs (45 -> 33)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @33(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_cs -> try_rem_default_cs (45 -> 37)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @37(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_cs -> try_rem_default_cs (45 -> 37)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @37(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_cs -> try_waits_default_cs (45 -> 45)
+      (true) ==> @45(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_cs -> waits_waits_default_cs (45 -> 61)
+      (true) ==> @61(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_waits_default_cs
+}
+
+// try_waits_default_rem
+{
+  mode 46;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_waits_default_rem -> try_cs_default_rem (46 -> 34)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @34(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_rem -> try_rem_default_rem (46 -> 38)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @38(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_rem -> try_rem_default_rem (46 -> 38)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @38(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_rem -> try_waits_default_try (46 -> 47)
+      (g = 0.0) ==> @47(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_rem -> try_waits_default_rem (46 -> 46)
+      (true) ==> @46(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_rem -> waits_waits_default_rem (46 -> 62)
+      (true) ==> @62(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_waits_default_rem
+}
+
+// try_waits_default_try
+{
+  mode 47;
+  invt:
+    (and (fischer_agent_1_x <= A) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_waits_default_try -> try_cs_default_try (47 -> 35)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @35(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_try -> try_rem_default_try (47 -> 39)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @39(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_try -> try_rem_default_try (47 -> 39)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @39(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_try -> try_waits_default_try (47 -> 47)
+      (true) ==> @47(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_try -> waits_waits_default_try (47 -> 63)
+      (true) ==> @63(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_try -> try_waits_default_waits (47 -> 48)
+      (true) ==> @48(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_waits_default_try
+}
+
+// try_waits_default_waits
+{
+  mode 48;
+  invt:
+    (fischer_agent_1_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // try_waits_default_waits -> try_cs_default_waits (48 -> 36)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @36(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> try_rem_default_waits (48 -> 40)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @40(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> try_rem_default_waits (48 -> 40)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @40(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> try_waits_default_cs (48 -> 45)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @45(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> try_waits_default_rem (48 -> 46)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @46(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> try_waits_default_rem (48 -> 46)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @46(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> try_waits_default_waits (48 -> 48)
+      (true) ==> @48(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // try_waits_default_waits -> waits_waits_default_waits (48 -> 64)
+      (true) ==> @64(and (fischer_agent_1_x' = 0.0) (g' = 1.0) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end try_waits_default_waits
+}
+
+// waits_cs_default_cs
+{
+  mode 49;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_cs_default_cs -> cs_cs_default_cs (49 -> 1)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @1(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_cs -> rem_cs_default_cs (49 -> 17)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @17(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_cs -> rem_cs_default_cs (49 -> 17)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @17(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_cs -> waits_cs_default_cs (49 -> 49)
+      (true) ==> @49(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_cs_default_cs
+}
+
+// waits_cs_default_rem
+{
+  mode 50;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_cs_default_rem -> cs_cs_default_rem (50 -> 2)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @2(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_rem -> rem_cs_default_rem (50 -> 18)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @18(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_rem -> rem_cs_default_rem (50 -> 18)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @18(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_rem -> waits_cs_default_try (50 -> 51)
+      (g = 0.0) ==> @51(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_rem -> waits_cs_default_rem (50 -> 50)
+      (true) ==> @50(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_cs_default_rem
+}
+
+// waits_cs_default_try
+{
+  mode 51;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_cs_default_try -> cs_cs_default_try (51 -> 3)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @3(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_try -> rem_cs_default_try (51 -> 19)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @19(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_try -> rem_cs_default_try (51 -> 19)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @19(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_try -> waits_cs_default_try (51 -> 51)
+      (true) ==> @51(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_try -> waits_cs_default_waits (51 -> 52)
+      (true) ==> @52(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_cs_default_try
+}
+
+// waits_cs_default_waits
+{
+  mode 52;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_cs_default_waits -> cs_cs_default_waits (52 -> 4)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @4(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_waits -> rem_cs_default_waits (52 -> 20)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @20(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_waits -> rem_cs_default_waits (52 -> 20)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @20(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_waits -> waits_cs_default_cs (52 -> 49)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @49(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_waits -> waits_cs_default_rem (52 -> 50)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @50(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_waits -> waits_cs_default_rem (52 -> 50)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @50(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_cs_default_waits -> waits_cs_default_waits (52 -> 52)
+      (true) ==> @52(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_cs_default_waits
+}
+
+// waits_rem_default_cs
+{
+  mode 53;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_rem_default_cs -> cs_rem_default_cs (53 -> 5)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @5(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_cs -> rem_rem_default_cs (53 -> 21)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @21(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_cs -> rem_rem_default_cs (53 -> 21)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @21(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_cs -> waits_try_default_cs (53 -> 57)
+      (g = 0.0) ==> @57(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_cs -> waits_rem_default_cs (53 -> 53)
+      (true) ==> @53(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_rem_default_cs
+}
+
+// waits_rem_default_rem
+{
+  mode 54;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_rem_default_rem -> cs_rem_default_rem (54 -> 6)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @6(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_rem -> rem_rem_default_rem (54 -> 22)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @22(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_rem -> rem_rem_default_rem (54 -> 22)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @22(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_rem -> waits_try_default_rem (54 -> 58)
+      (g = 0.0) ==> @58(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_rem -> waits_rem_default_try (54 -> 55)
+      (g = 0.0) ==> @55(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_rem -> waits_rem_default_rem (54 -> 54)
+      (true) ==> @54(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_rem_default_rem
+}
+
+// waits_rem_default_try
+{
+  mode 55;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_rem_default_try -> cs_rem_default_try (55 -> 7)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @7(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_try -> rem_rem_default_try (55 -> 23)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @23(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_try -> rem_rem_default_try (55 -> 23)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @23(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_try -> waits_try_default_try (55 -> 59)
+      (g = 0.0) ==> @59(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_try -> waits_rem_default_try (55 -> 55)
+      (true) ==> @55(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_try -> waits_rem_default_waits (55 -> 56)
+      (true) ==> @56(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_rem_default_try
+}
+
+// waits_rem_default_waits
+{
+  mode 56;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = 0.0;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_rem_default_waits -> cs_rem_default_waits (56 -> 8)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @8(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> rem_rem_default_waits (56 -> 24)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @24(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> rem_rem_default_waits (56 -> 24)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @24(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> waits_try_default_waits (56 -> 60)
+      (g = 0.0) ==> @60(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> waits_rem_default_cs (56 -> 53)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @53(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> waits_rem_default_rem (56 -> 54)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @54(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> waits_rem_default_rem (56 -> 54)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @54(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_rem_default_waits -> waits_rem_default_waits (56 -> 56)
+      (true) ==> @56(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_rem_default_waits
+}
+
+// waits_try_default_cs
+{
+  mode 57;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_try_default_cs -> cs_try_default_cs (57 -> 9)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @9(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_cs -> rem_try_default_cs (57 -> 25)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @25(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_cs -> rem_try_default_cs (57 -> 25)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @25(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_cs -> waits_try_default_cs (57 -> 57)
+      (true) ==> @57(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_cs -> waits_waits_default_cs (57 -> 61)
+      (true) ==> @61(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_try_default_cs
+}
+
+// waits_try_default_rem
+{
+  mode 58;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_try_default_rem -> cs_try_default_rem (58 -> 10)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @10(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_rem -> rem_try_default_rem (58 -> 26)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @26(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_rem -> rem_try_default_rem (58 -> 26)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @26(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_rem -> waits_try_default_try (58 -> 59)
+      (g = 0.0) ==> @59(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_rem -> waits_try_default_rem (58 -> 58)
+      (true) ==> @58(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_rem -> waits_waits_default_rem (58 -> 62)
+      (true) ==> @62(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_try_default_rem
+}
+
+// waits_try_default_try
+{
+  mode 59;
+  invt:
+    (and (fischer_agent_2_x <= A) (fischer_agent_3_x <= A));
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_try_default_try -> cs_try_default_try (59 -> 11)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @11(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_try -> rem_try_default_try (59 -> 27)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @27(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_try -> rem_try_default_try (59 -> 27)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @27(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_try -> waits_try_default_try (59 -> 59)
+      (true) ==> @59(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_try -> waits_waits_default_try (59 -> 63)
+      (true) ==> @63(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_try -> waits_try_default_waits (59 -> 60)
+      (true) ==> @60(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_try_default_try
+}
+
+// waits_try_default_waits
+{
+  mode 60;
+  invt:
+    (fischer_agent_2_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_try_default_waits -> cs_try_default_waits (60 -> 12)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @12(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> rem_try_default_waits (60 -> 28)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @28(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> rem_try_default_waits (60 -> 28)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @28(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> waits_try_default_cs (60 -> 57)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @57(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> waits_try_default_rem (60 -> 58)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @58(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> waits_try_default_rem (60 -> 58)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @58(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> waits_try_default_waits (60 -> 60)
+      (true) ==> @60(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_try_default_waits -> waits_waits_default_waits (60 -> 64)
+      (true) ==> @64(and (fischer_agent_2_x' = 0.0) (g' = 2.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_try_default_waits
+}
+
+// waits_waits_default_cs
+{
+  mode 61;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_waits_default_cs -> cs_waits_default_cs (61 -> 13)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @13(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_cs -> rem_waits_default_cs (61 -> 29)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @29(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_cs -> rem_waits_default_cs (61 -> 29)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @29(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_cs -> waits_cs_default_cs (61 -> 49)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @49(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_cs -> waits_rem_default_cs (61 -> 53)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @53(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_cs -> waits_rem_default_cs (61 -> 53)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @53(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_cs -> waits_waits_default_cs (61 -> 61)
+      (true) ==> @61(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_waits_default_cs
+}
+
+// waits_waits_default_rem
+{
+  mode 62;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = 0.0;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_waits_default_rem -> cs_waits_default_rem (62 -> 14)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @14(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> rem_waits_default_rem (62 -> 30)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @30(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> rem_waits_default_rem (62 -> 30)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @30(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> waits_cs_default_rem (62 -> 50)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @50(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> waits_rem_default_rem (62 -> 54)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @54(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> waits_rem_default_rem (62 -> 54)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @54(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> waits_waits_default_try (62 -> 63)
+      (g = 0.0) ==> @63(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_rem -> waits_waits_default_rem (62 -> 62)
+      (true) ==> @62(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_waits_default_rem
+}
+
+// waits_waits_default_try
+{
+  mode 63;
+  invt:
+    (fischer_agent_3_x <= A);
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_waits_default_try -> cs_waits_default_try (63 -> 15)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @15(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> rem_waits_default_try (63 -> 31)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @31(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> rem_waits_default_try (63 -> 31)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @31(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> waits_cs_default_try (63 -> 51)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @51(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> waits_rem_default_try (63 -> 55)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @55(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> waits_rem_default_try (63 -> 55)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @55(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> waits_waits_default_try (63 -> 63)
+      (true) ==> @63(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_try -> waits_waits_default_waits (63 -> 64)
+      (true) ==> @64(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_waits_default_try
+}
+
+// waits_waits_default_waits
+{
+  mode 64;
+  invt:
+  flow:
+    d/dt[fischer_agent_1_x] = rate;
+    d/dt[fischer_agent_1_i] = 0.0;
+    d/dt[fischer_agent_2_x] = rate;
+    d/dt[fischer_agent_2_i] = 0.0;
+    d/dt[g] = 0.0;
+    d/dt[clock] = 1.0;
+    d/dt[fischer_agent_3_x] = rate;
+    d/dt[fischer_agent_3_i] = 0.0;
+
+  jump:
+    // waits_waits_default_waits -> cs_waits_default_waits (64 -> 16)
+      (and (g = fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @16(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> rem_waits_default_waits (64 -> 32)
+      (and (g < fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @32(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> rem_waits_default_waits (64 -> 32)
+      (and (g > fischer_agent_1_i) (fischer_agent_1_x >= B)) ==> @32(and (fischer_agent_1_x' = 0.0) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_cs_default_waits (64 -> 52)
+      (and (g = fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @52(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_rem_default_waits (64 -> 56)
+      (and (g < fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @56(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_rem_default_waits (64 -> 56)
+      (and (g > fischer_agent_2_i) (fischer_agent_2_x >= B)) ==> @56(and (fischer_agent_2_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_waits_default_cs (64 -> 61)
+      (and (g = fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @61(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_waits_default_rem (64 -> 62)
+      (and (g < fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @62(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_waits_default_rem (64 -> 62)
+      (and (g > fischer_agent_3_i) (fischer_agent_3_x >= B)) ==> @62(and (fischer_agent_3_x' = 0.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (g' = g) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_i' = fischer_agent_3_i));
+
+    // waits_waits_default_waits -> waits_waits_default_waits (64 -> 64)
+      (true) ==> @64(and (g' = 3.0) (fischer_agent_1_x' = fischer_agent_1_x) (fischer_agent_1_i' = fischer_agent_1_i) (fischer_agent_2_x' = fischer_agent_2_x) (fischer_agent_2_i' = fischer_agent_2_i) (clock' = clock) (fischer_agent_3_x' = fischer_agent_3_x) (fischer_agent_3_i' = fischer_agent_3_i));
+
+  // end waits_waits_default_waits
+}
+// end modes
+
+init:
+@22 (and (and (and (and (and (and (and (and (fischer_agent_1_x = 0.0) (fischer_agent_1_i = 1.0)) (g = 0.0)) (A = 5.0)) (B = 70.0)) (rate = 1.0)) (fischer_agent_2_x = 0.0)) (fischer_agent_2_i = 2.0)) (clock = 0.0));
+
+goal:
+@1 (and (and (fischer_agent_1_x >= 0.0) (fischer_agent_2_x >= 0.0)) (fischer_agent_3_x >= 0.0));

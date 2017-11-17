@@ -1,0 +1,28 @@
+dReal Options:
+For k = 0, there is no feasible path to check.
+For k = 1, there is no feasible path to check.
+For k = 2, there is no feasible path to check.
+For k = 3, there is no feasible path to check.
+For k = 4, there is no feasible path to check.
+For k = 5, there is no feasible path to check.
+SMT: fischer_N_2_simplified_unsafe_6_0.smt2, PATH : [6,7,8,5,9,13,1]
+unsat
+Exit [0]
+0.86 user, 0.01 system, 2.12 elapsed -- Max VSize = 18048KB, Max RSS = 5660KB
+SMT: fischer_N_2_simplified_unsafe_6_1.smt2, PATH : [6,7,8,12,9,13,1]
+unsat
+Exit [0]
+1.13 user, 0.01 system, 2.62 elapsed -- Max VSize = 18072KB, Max RSS = 6216KB
+SMT: fischer_N_2_simplified_unsafe_6_2.smt2, PATH : [6,7,8,12,16,4,1]
+unsat
+Exit [0]
+2.68 user, 0.03 system, 5.94 elapsed -- Max VSize = 18132KB, Max RSS = 6804KB
+SMT: fischer_N_2_simplified_unsafe_6_3.smt2, PATH : [6,7,8,12,16,13,1]
+unsat
+Exit [0]
+2.91 user, 0.01 system, 6.03 elapsed -- Max VSize = 18132KB, Max RSS = 6008KB
+SMT: fischer_N_2_simplified_unsafe_6_4.smt2, PATH : [6,7,11,12,9,13,1]
+sat
+Exit [0]
+36.63 user, 0.07 system, 39.13 elapsed -- Max VSize = 18084KB, Max RSS = 7488KB
+For k = 6, [6,7,11,12,9,13,1] -- SAT

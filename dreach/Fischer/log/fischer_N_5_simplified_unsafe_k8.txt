@@ -1,0 +1,39 @@
+dReal Options:
+
+Exit [0]
+0.44 user, 0.01 system, 0.71 elapsed -- Max VSize = 51876KB, Max RSS = 37712KB
+For k = 0, there is no feasible path to check.
+
+Exit [0]
+0.42 user, 0.02 system, 0.50 elapsed -- Max VSize = 47168KB, Max RSS = 34804KB
+For k = 1, there is no feasible path to check.
+
+Exit [0]
+0.40 user, 0.01 system, 0.50 elapsed -- Max VSize = 42944KB, Max RSS = 31016KB
+For k = 2, there is no feasible path to check.
+
+Exit [0]
+0.37 user, 0.02 system, 0.50 elapsed -- Max VSize = 47168KB, Max RSS = 36652KB
+For k = 3, there is no feasible path to check.
+
+Exit [0]
+0.39 user, 0.00 system, 0.50 elapsed -- Max VSize = 51876KB, Max RSS = 37440KB
+For k = 4, there is no feasible path to check.
+
+Exit [0]
+0.39 user, 0.00 system, 0.50 elapsed -- Max VSize = 51876KB, Max RSS = 37168KB
+For k = 5, there is no feasible path to check.
+
+Exit [0]
+0.40 user, 0.02 system, 0.50 elapsed -- Max VSize = 51876KB, Max RSS = 41340KB
+For k = 6, there is no feasible path to check.
+
+Exit [0]
+0.51 user, 0.04 system, 0.60 elapsed -- Max VSize = 80452KB, Max RSS = 61556KB
+For k = 7, there is no feasible path to check.
+
+Exit [0]
+1.23 user, 0.05 system, 1.41 elapsed -- Max VSize = 217752KB, Max RSS = 198864KB
+For k = 8, there is no feasible path to check.
+Exit [0]
+9.39 user, 0.47 system, 11.28 elapsed -- Max VSize = 71236KB, Max RSS = 2144KB

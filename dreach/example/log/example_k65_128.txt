@@ -1,0 +1,387 @@
+dReal Options:
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_65_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+162.75 user, 0.06 system, 164.68 elapsed -- Max VSize = 28724KB, Max RSS = 15588KB
+For k = 65, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 66, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_67_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+158.45 user, 0.10 system, 161.55 elapsed -- Max VSize = 16552KB, Max RSS = 10988KB
+For k = 67, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 68, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_69_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+172.85 user, 0.14 system, 174.04 elapsed -- Max VSize = 18624KB, Max RSS = 9652KB
+For k = 69, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 70, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_71_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+197.22 user, 0.11 system, 234.50 elapsed -- Max VSize = 21972KB, Max RSS = 14508KB
+For k = 71, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 72, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_73_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+203.47 user, 0.10 system, 204.61 elapsed -- Max VSize = 22348KB, Max RSS = 12864KB
+For k = 73, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 74, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_75_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+223.63 user, 0.14 system, 295.54 elapsed -- Max VSize = 25620KB, Max RSS = 15816KB
+For k = 75, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 76, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_77_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+247.73 user, 0.11 system, 298.05 elapsed -- Max VSize = 26164KB, Max RSS = 14336KB
+For k = 77, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 78, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_79_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+254.17 user, 0.08 system, 304.68 elapsed -- Max VSize = 26716KB, Max RSS = 16260KB
+For k = 79, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 80, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_81_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+274.29 user, 0.18 system, 309.40 elapsed -- Max VSize = 35556KB, Max RSS = 15760KB
+For k = 81, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 82, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_83_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+289.59 user, 0.10 system, 340.25 elapsed -- Max VSize = 28016KB, Max RSS = 17016KB
+For k = 83, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 84, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_85_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+315.69 user, 0.09 system, 377.56 elapsed -- Max VSize = 28608KB, Max RSS = 17068KB
+For k = 85, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 86, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_87_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+346.73 user, 0.16 system, 388.65 elapsed -- Max VSize = 29208KB, Max RSS = 16064KB
+For k = 87, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 88, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_89_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+371.56 user, 0.13 system, 441.38 elapsed -- Max VSize = 29832KB, Max RSS = 17768KB
+For k = 89, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 90, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_91_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+420.32 user, 0.14 system, 509.30 elapsed -- Max VSize = 32472KB, Max RSS = 19480KB
+For k = 91, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 92, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_93_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+464.87 user, 0.12 system, 567.22 elapsed -- Max VSize = 31100KB, Max RSS = 19152KB
+For k = 93, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 94, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_95_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+476.40 user, 0.12 system, 576.80 elapsed -- Max VSize = 50352KB, Max RSS = 25004KB
+For k = 95, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 96, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_97_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+489.99 user, 0.16 system, 589.69 elapsed -- Max VSize = 32576KB, Max RSS = 19024KB
+For k = 97, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 98, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_99_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+527.16 user, 0.13 system, 636.64 elapsed -- Max VSize = 23196KB, Max RSS = 13620KB
+For k = 99, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 100, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_101_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+574.76 user, 0.11 system, 695.42 elapsed -- Max VSize = 59704KB, Max RSS = 26492KB
+For k = 101, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 102, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.11 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_103_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+586.19 user, 0.21 system, 684.87 elapsed -- Max VSize = 38436KB, Max RSS = 24268KB
+For k = 103, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 104, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_105_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+641.70 user, 0.19 system, 750.68 elapsed -- Max VSize = 23476KB, Max RSS = 14188KB
+For k = 105, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 106, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_107_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+670.93 user, 0.19 system, 805.46 elapsed -- Max VSize = 23612KB, Max RSS = 13240KB
+For k = 107, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 108, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_109_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+690.20 user, 0.17 system, 828.01 elapsed -- Max VSize = 66060KB, Max RSS = 25352KB
+For k = 109, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 110, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_111_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+753.78 user, 0.18 system, 837.55 elapsed -- Max VSize = 23772KB, Max RSS = 15568KB
+For k = 111, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 112, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_113_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+762.78 user, 0.23 system, 941.14 elapsed -- Max VSize = 49852KB, Max RSS = 25668KB
+For k = 113, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 114, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_115_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+805.62 user, 0.19 system, 963.96 elapsed -- Max VSize = 71052KB, Max RSS = 25672KB
+For k = 115, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 116, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_117_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+850.57 user, 0.25 system, 998.51 elapsed -- Max VSize = 24016KB, Max RSS = 15648KB
+For k = 117, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 118, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_119_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+893.16 user, 0.22 system, 1057.76 elapsed -- Max VSize = 24232KB, Max RSS = 14876KB
+For k = 119, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 120, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_121_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+947.42 user, 0.18 system, 1133.25 elapsed -- Max VSize = 24324KB, Max RSS = 14780KB
+For k = 121, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 122, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_123_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+995.68 user, 0.17 system, 1190.50 elapsed -- Max VSize = 24404KB, Max RSS = 14976KB
+For k = 123, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 124, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+SMT: example_paper_hybrid_125_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+1042.56 user, 0.20 system, 1245.45 elapsed -- Max VSize = 24488KB, Max RSS = 13768KB
+For k = 125, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+For k = 126, there is no feasible path to check.
+[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 88KB
+SMT: example_paper_hybrid_127_0.smt2, PATH : [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]
+unsat
+Exit [0]
+1098.21 user, 0.21 system, 1315.43 elapsed -- Max VSize = 25148KB, Max RSS = 15276KB
+For k = 127, dReach tried 1 feasible paths, all of them are unsat.
+
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 84KB
+For k = 128, there is no feasible path to check.
+Exit [0]
+16912.22 user, 18.22 system, 20034.94 elapsed -- Max VSize = 71476KB, Max RSS = 2368KB

@@ -1,0 +1,88 @@
+dReal Options:
+For k = 0, there is no feasible path to check.
+For k = 1, there is no feasible path to check.
+For k = 2, there is no feasible path to check.
+For k = 3, there is no feasible path to check.
+For k = 4, there is no feasible path to check.
+For k = 5, there is no feasible path to check.
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_0.smt2, PATH : [6,7,8,5,9,13,1]
+unsat
+Exit [0]
+0.67 user, 0.00 system, 0.71 elapsed -- Max VSize = 18048KB, Max RSS = 5664KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_1.smt2, PATH : [6,7,8,12,9,13,1]
+unsat
+Exit [0]
+1.05 user, 0.01 system, 1.22 elapsed -- Max VSize = 18072KB, Max RSS = 6216KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_2.smt2, PATH : [6,7,8,12,16,4,1]
+unsat
+Exit [0]
+2.29 user, 0.00 system, 2.51 elapsed -- Max VSize = 18132KB, Max RSS = 6272KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_3.smt2, PATH : [6,7,8,12,16,13,1]
+unsat
+Exit [0]
+2.87 user, 0.02 system, 3.22 elapsed -- Max VSize = 18132KB, Max RSS = 5752KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_4.smt2, PATH : [6,7,11,12,9,13,1]
+unsat
+Exit [0]
+1.05 user, 0.00 system, 1.32 elapsed -- Max VSize = 18084KB, Max RSS = 5964KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_5.smt2, PATH : [6,7,11,12,16,4,1]
+unsat
+Exit [0]
+1.54 user, 0.00 system, 1.72 elapsed -- Max VSize = 18128KB, Max RSS = 6008KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_6.smt2, PATH : [6,7,11,12,16,13,1]
+unsat
+Exit [0]
+3.40 user, 0.04 system, 3.62 elapsed -- Max VSize = 18128KB, Max RSS = 4492KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_7.smt2, PATH : [6,7,11,15,3,4,1]
+unsat
+Exit [0]
+0.68 user, 0.00 system, 0.70 elapsed -- Max VSize = 18084KB, Max RSS = 6228KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_8.smt2, PATH : [6,7,11,15,16,4,1]
+unsat
+Exit [0]
+3.08 user, 0.01 system, 3.31 elapsed -- Max VSize = 18128KB, Max RSS = 4760KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_9.smt2, PATH : [6,7,11,15,16,13,1]
+unsat
+Exit [0]
+3.35 user, 0.02 system, 3.51 elapsed -- Max VSize = 18128KB, Max RSS = 5740KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_10.smt2, PATH : [6,10,11,12,9,13,1]
+unsat
+Exit [0]
+1.67 user, 0.02 system, 1.82 elapsed -- Max VSize = 18084KB, Max RSS = 5968KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_11.smt2, PATH : [6,10,11,12,16,4,1]
+unsat
+Exit [0]
+3.96 user, 0.02 system, 4.12 elapsed -- Max VSize = 18128KB, Max RSS = 10624KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_12.smt2, PATH : [6,10,11,12,16,13,1]
+unsat
+Exit [0]
+3.90 user, 0.01 system, 4.12 elapsed -- Max VSize = 18128KB, Max RSS = 6272KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_13.smt2, PATH : [6,10,11,15,3,4,1]
+unsat
+Exit [0]
+1.52 user, 0.00 system, 1.71 elapsed -- Max VSize = 18084KB, Max RSS = 8800KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_14.smt2, PATH : [6,10,11,15,16,4,1]
+unsat
+Exit [0]
+3.87 user, 0.02 system, 4.12 elapsed -- Max VSize = 18128KB, Max RSS = 5744KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_15.smt2, PATH : [6,10,11,15,16,13,1]
+unsat
+Exit [0]
+4.22 user, 0.04 system, 4.42 elapsed -- Max VSize = 18128KB, Max RSS = 4756KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_16.smt2, PATH : [6,10,14,2,3,4,1]
+unsat
+Exit [0]
+1.17 user, 0.01 system, 1.31 elapsed -- Max VSize = 18048KB, Max RSS = 6192KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_17.smt2, PATH : [6,10,14,15,3,4,1]
+unsat
+Exit [0]
+1.91 user, 0.02 system, 2.11 elapsed -- Max VSize = 18072KB, Max RSS = 8784KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_18.smt2, PATH : [6,10,14,15,16,4,1]
+unsat
+Exit [0]
+3.33 user, 0.02 system, 3.52 elapsed -- Max VSize = 18132KB, Max RSS = 4760KB
+SMT: ./Fischer/N2/fischer_N_2_simplified_safe_6_19.smt2, PATH : [6,10,14,15,16,13,1]
+unsat
+Exit [0]
+5.30 user, 0.03 system, 5.62 elapsed -- Max VSize = 18132KB, Max RSS = 4760KB
+For k = 6, dReach tried 20 feasible paths, all of them are unsat.

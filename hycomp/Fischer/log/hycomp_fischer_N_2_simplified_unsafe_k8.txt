@@ -1,0 +1,103 @@
+*** This is hycomp 1.1.0 (compiled on Thu Oct 23 19:08:40 2014)
+*** Copyright (c) 2014, Fondazione Bruno Kessler
+
+*** For more information on hycomp see https://es.fbk.eu/tools/hycomp
+*** or email to <hycomp@list.fbk.eu>.
+*** Please report bugs at not available
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <hycomp@list.fbk.eu>.
+
+*** This version of hycomp is linked to NuSMV 2.5.trunk.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Copyright (C) 2010-2014, Fondazione Bruno Kessler
+
+*** This version of hycomp is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of hycomp is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of hycomp is linked to MathSAT
+*** Copyright (C) 2014 by Fondazione Bruno Kessler
+*** Copyright (C) 2014 by University of Trento
+*** See http://mathsat.fbk.eu
+
+*** This version of hycomp is linked to LAPACK
+*** Copyright (C) 1992-2011 The University of Tennessee and The University
+***                         of Tennessee Research Foundation.
+***                         All rights reserved.
+*** Copyright (C) 2000-2011 The University of California Berkeley.
+***                         All rights reserved.
+*** Copyright (C) 2006-2012 The University of Colorado Denver.
+***                         All rights reserved.
+*** See http://www.netlib.org/lapack/
+
+Defining new environment variable "_hycomp_disable_conv_check"
+elapse: 0.02 seconds, total: 0.02 seconds
+-- no proof or counter-example found with bound 0  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 1  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 2  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 3  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 4  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 5  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 6  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 7  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance is false, a counter-example of size 8 exists
+-- as demonstrated by the following execution sequence
+Trace Description: HYCOMP BMC MSAT BMC Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    instance.location = rem_rem_default
+    instance.fischer_agent_1_x = 0
+    instance.fischer_agent_1_i = 1
+    instance.g = 0
+    instance.fischer_agent_2_x = 0
+    instance.fischer_agent_2_i = 2
+    instance.clock = 0
+    instance.rate = 1.0
+    instance.b = 70.0
+    instance.a = 75.0
+    instance.false = FALSE
+    instance.true = TRUE
+  -> Input: 1.2 <-
+    instance.EVENT = discrete
+  -> State: 1.2 <-
+    instance.location = try_rem_default
+  -> Input: 1.3 <-
+  -> State: 1.3 <-
+    instance.location = try_try_default
+  -> Input: 1.4 <-
+  -> State: 1.4 <-
+    instance.location = try_waits_default
+    instance.g = 2
+  -> Input: 1.5 <-
+    instance.EVENT = timed
+  -> State: 1.5 <-
+    instance.fischer_agent_1_x = 70
+    instance.fischer_agent_2_x = 70
+    instance.clock = 70
+  -> Input: 1.6 <-
+    instance.EVENT = discrete
+  -> State: 1.6 <-
+    instance.location = try_cs_default
+    instance.fischer_agent_2_x = 0
+  -> Input: 1.7 <-
+  -> State: 1.7 <-
+    instance.location = waits_cs_default
+    instance.fischer_agent_1_x = 0
+    instance.g = 1
+  -> Input: 1.8 <-
+    instance.EVENT = timed
+  -> State: 1.8 <-
+    instance.fischer_agent_1_x = 70
+    instance.clock = 140
+  -> Input: 1.9 <-
+    instance.EVENT = discrete
+  -> State: 1.9 <-
+    instance.location = cs_cs_default
+    instance.fischer_agent_1_x = 0
+Exit [0]
+0.09 user, 0.06 system, 0.30 elapsed -- Max VSize = 127420KB, Max RSS = 103316KB

@@ -1,0 +1,52 @@
+*** This is hycomp 1.1.0 (compiled on Thu Oct 23 19:08:40 2014)
+*** Copyright (c) 2014, Fondazione Bruno Kessler
+
+*** For more information on hycomp see https://es.fbk.eu/tools/hycomp
+*** or email to <hycomp@list.fbk.eu>.
+*** Please report bugs at not available
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <hycomp@list.fbk.eu>.
+
+*** This version of hycomp is linked to NuSMV 2.5.trunk.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Copyright (C) 2010-2014, Fondazione Bruno Kessler
+
+*** This version of hycomp is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of hycomp is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of hycomp is linked to MathSAT
+*** Copyright (C) 2014 by Fondazione Bruno Kessler
+*** Copyright (C) 2014 by University of Trento
+*** See http://mathsat.fbk.eu
+
+*** This version of hycomp is linked to LAPACK
+*** Copyright (C) 1992-2011 The University of Tennessee and The University
+***                         of Tennessee Research Foundation.
+***                         All rights reserved.
+*** Copyright (C) 2000-2011 The University of California Berkeley.
+***                         All rights reserved.
+*** Copyright (C) 2006-2012 The University of Colorado Denver.
+***                         All rights reserved.
+*** See http://www.netlib.org/lapack/
+
+Defining new environment variable "_hycomp_disable_conv_check"
+elapse: 0.04 seconds, total: 0.04 seconds
+-- no proof or counter-example found with bound 0  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 1  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 2  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 3  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 4  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 5  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 6  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 7  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- no proof or counter-example found with bound 8  for invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance
+-- invariant !((location = cs_cs_default & fischer_agent_1_x >= 0.0) & fischer_agent_2_x >= 0.0) IN instance is unknown
+--  no proof or counter-example found with bound 8
+Exit [0]
+0.13 user, 0.02 system, 0.30 elapsed -- Max VSize = 128124KB, Max RSS = 103848KB

@@ -1,0 +1,1449 @@
+--Created by Hyst v1.2
+--Hybrid Automaton in HyComp
+--Converted from file: lynch_N_2_simplified_safe.xml
+--Command Line arguments: lynch_N_2_simplified_safe.xml -hycomp -o lynch_N_2_simplified_safe.hydi
+
+
+MODULE main
+VAR
+  instance: fischer_sys;
+
+MODULE fischer_sys
+--Vars
+VAR
+  --Locations are encoded as a variable with a finite (enumeration / set) type.
+  location: {rem_rem_default, rem_try_default, rem_waits_default, rem_cs_default, rem_rem1_default, rem_try1_default, rem_waits1_default, rem_try2_default, rem_rem2_default, try_rem_default, try_try_default, try_waits_default, try_cs_default, try_rem1_default, try_try1_default, try_waits1_default, try_try2_default, try_rem2_default, waits_rem_default, waits_try_default, waits_waits_default, waits_cs_default, waits_rem1_default, waits_try1_default, waits_waits1_default, waits_try2_default, waits_rem2_default, cs_rem_default, cs_try_default, cs_waits_default, cs_cs_default, cs_rem1_default, cs_try1_default, cs_waits1_default, cs_try2_default, cs_rem2_default, rem1_rem_default, rem1_try_default, rem1_waits_default, rem1_cs_default, rem1_rem1_default, rem1_try1_default, rem1_waits1_default, rem1_try2_default, rem1_rem2_default, try1_rem_default, try1_try_default, try1_waits_default, try1_cs_default, try1_rem1_default, try1_try1_default, try1_waits1_default, try1_try2_default, try1_rem2_default, waits1_rem_default, waits1_try_default, waits1_waits_default, waits1_cs_default, waits1_rem1_default, waits1_try1_default, waits1_waits1_default, waits1_try2_default, waits1_rem2_default, try2_rem_default, try2_try_default, try2_waits_default, try2_cs_default, try2_rem1_default, try2_try1_default, try2_waits1_default, try2_try2_default, try2_rem2_default, rem2_rem_default, rem2_try_default, rem2_waits_default, rem2_cs_default, rem2_rem1_default, rem2_try1_default, rem2_waits1_default, rem2_try2_default, rem2_rem2_default};
+  fischer_agent_1_x: continuous;
+  fischer_agent_1_i: continuous;
+  g: continuous;
+  v: continuous;
+  fischer_agent_2_x: continuous;
+  fischer_agent_2_i: continuous;
+  clock: continuous;
+
+DEFINE
+  true := TRUE;
+  false := FALSE;
+  a :=1.0;
+  b :=1.0;
+  rate :=1.0;
+
+-- start locations
+-- rem_rem_default
+FLOW
+  (location = rem_rem_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_rem_default
+
+-- rem_try_default
+FLOW
+  (location = rem_try_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_try_default
+
+-- rem_waits_default
+FLOW
+  (location = rem_waits_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_waits_default
+
+-- rem_cs_default
+FLOW
+  (location = rem_cs_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_cs_default
+
+-- rem_rem1_default
+FLOW
+  (location = rem_rem1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_rem1_default
+
+-- rem_try1_default
+FLOW
+  (location = rem_try1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_try1_default
+
+-- rem_waits1_default
+FLOW
+  (location = rem_waits1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_waits1_default
+
+-- rem_try2_default
+FLOW
+  (location = rem_try2_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_try2_default
+
+-- rem_rem2_default
+FLOW
+  (location = rem_rem2_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem_rem2_default
+
+-- try_rem_default
+FLOW
+  (location = try_rem_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_rem_default
+
+-- try_try_default
+FLOW
+  (location = try_try_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_try_default
+
+-- try_waits_default
+FLOW
+  (location = try_waits_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_waits_default
+
+-- try_cs_default
+FLOW
+  (location = try_cs_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_cs_default
+
+-- try_rem1_default
+FLOW
+  (location = try_rem1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_rem1_default
+
+-- try_try1_default
+FLOW
+  (location = try_try1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_try1_default
+
+-- try_waits1_default
+FLOW
+  (location = try_waits1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_waits1_default
+
+-- try_try2_default
+FLOW
+  (location = try_try2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_try2_default
+
+-- try_rem2_default
+FLOW
+  (location = try_rem2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try_rem2_default
+
+-- waits_rem_default
+FLOW
+  (location = waits_rem_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_rem_default
+
+-- waits_try_default
+FLOW
+  (location = waits_try_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_try_default
+
+-- waits_waits_default
+FLOW
+  (location = waits_waits_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_waits_default
+
+-- waits_cs_default
+FLOW
+  (location = waits_cs_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_cs_default
+
+-- waits_rem1_default
+FLOW
+  (location = waits_rem1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_rem1_default
+
+-- waits_try1_default
+FLOW
+  (location = waits_try1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_try1_default
+
+-- waits_waits1_default
+FLOW
+  (location = waits_waits1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_waits1_default
+
+-- waits_try2_default
+FLOW
+  (location = waits_try2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_try2_default
+
+-- waits_rem2_default
+FLOW
+  (location = waits_rem2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits_rem2_default
+
+-- cs_rem_default
+FLOW
+  (location = cs_rem_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_rem_default
+
+-- cs_try_default
+FLOW
+  (location = cs_try_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_try_default
+
+-- cs_waits_default
+FLOW
+  (location = cs_waits_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_waits_default
+
+-- cs_cs_default
+FLOW
+  (location = cs_cs_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_cs_default
+
+-- cs_rem1_default
+FLOW
+  (location = cs_rem1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_rem1_default
+
+-- cs_try1_default
+FLOW
+  (location = cs_try1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_try1_default
+
+-- cs_waits1_default
+FLOW
+  (location = cs_waits1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_waits1_default
+
+-- cs_try2_default
+FLOW
+  (location = cs_try2_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_try2_default
+
+-- cs_rem2_default
+FLOW
+  (location = cs_rem2_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end cs_rem2_default
+
+-- rem1_rem_default
+FLOW
+  (location = rem1_rem_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_rem_default
+
+-- rem1_try_default
+FLOW
+  (location = rem1_try_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_try_default
+
+-- rem1_waits_default
+FLOW
+  (location = rem1_waits_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_waits_default
+
+-- rem1_cs_default
+FLOW
+  (location = rem1_cs_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_cs_default
+
+-- rem1_rem1_default
+FLOW
+  (location = rem1_rem1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_rem1_default
+
+-- rem1_try1_default
+FLOW
+  (location = rem1_try1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_try1_default
+
+-- rem1_waits1_default
+FLOW
+  (location = rem1_waits1_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_waits1_default
+
+-- rem1_try2_default
+FLOW
+  (location = rem1_try2_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_try2_default
+
+-- rem1_rem2_default
+FLOW
+  (location = rem1_rem2_default -> (der(fischer_agent_1_x) = 0.0&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem1_rem2_default
+
+-- try1_rem_default
+FLOW
+  (location = try1_rem_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_rem_default
+
+-- try1_try_default
+FLOW
+  (location = try1_try_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_try_default
+
+-- try1_waits_default
+FLOW
+  (location = try1_waits_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_waits_default
+
+-- try1_cs_default
+FLOW
+  (location = try1_cs_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_cs_default
+
+-- try1_rem1_default
+FLOW
+  (location = try1_rem1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_rem1_default
+
+-- try1_try1_default
+FLOW
+  (location = try1_try1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_try1_default
+
+-- try1_waits1_default
+FLOW
+  (location = try1_waits1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_waits1_default
+
+-- try1_try2_default
+FLOW
+  (location = try1_try2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_try2_default
+
+-- try1_rem2_default
+FLOW
+  (location = try1_rem2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try1_rem2_default
+
+-- waits1_rem_default
+FLOW
+  (location = waits1_rem_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_rem_default
+
+-- waits1_try_default
+FLOW
+  (location = waits1_try_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_try_default
+
+-- waits1_waits_default
+FLOW
+  (location = waits1_waits_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_waits_default
+
+-- waits1_cs_default
+FLOW
+  (location = waits1_cs_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_cs_default
+
+-- waits1_rem1_default
+FLOW
+  (location = waits1_rem1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_rem1_default
+
+-- waits1_try1_default
+FLOW
+  (location = waits1_try1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_try1_default
+
+-- waits1_waits1_default
+FLOW
+  (location = waits1_waits1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_waits1_default
+
+-- waits1_try2_default
+FLOW
+  (location = waits1_try2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_try2_default
+
+-- waits1_rem2_default
+FLOW
+  (location = waits1_rem2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end waits1_rem2_default
+
+-- try2_rem_default
+FLOW
+  (location = try2_rem_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_rem_default
+
+-- try2_try_default
+FLOW
+  (location = try2_try_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_try_default
+
+-- try2_waits_default
+FLOW
+  (location = try2_waits_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_waits_default
+
+-- try2_cs_default
+FLOW
+  (location = try2_cs_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_cs_default
+
+-- try2_rem1_default
+FLOW
+  (location = try2_rem1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_rem1_default
+
+-- try2_try1_default
+FLOW
+  (location = try2_try1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_try1_default
+
+-- try2_waits1_default
+FLOW
+  (location = try2_waits1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_waits1_default
+
+-- try2_try2_default
+FLOW
+  (location = try2_try2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_try2_default
+
+-- try2_rem2_default
+FLOW
+  (location = try2_rem2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end try2_rem2_default
+
+-- rem2_rem_default
+FLOW
+  (location = rem2_rem_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_rem_default
+
+-- rem2_try_default
+FLOW
+  (location = rem2_try_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_try_default
+
+-- rem2_waits_default
+FLOW
+  (location = rem2_waits_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_waits_default
+
+-- rem2_cs_default
+FLOW
+  (location = rem2_cs_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_cs_default
+
+-- rem2_rem1_default
+FLOW
+  (location = rem2_rem1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = 0.0&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_rem1_default
+
+-- rem2_try1_default
+FLOW
+  (location = rem2_try1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_try1_default
+
+-- rem2_waits1_default
+FLOW
+  (location = rem2_waits1_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_waits1_default
+
+-- rem2_try2_default
+FLOW
+  (location = rem2_try2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_try2_default
+
+-- rem2_rem2_default
+FLOW
+  (location = rem2_rem2_default -> (der(fischer_agent_1_x) = rate&der(fischer_agent_1_i) = 0.0&der(fischer_agent_2_x) = rate&der(fischer_agent_2_i) = 0.0&der(g) = 0.0&der(clock) = 1.0&der(v) = 0.0));
+-- end rem2_rem2_default
+--invariants are printed all together with implications on locations, etc.
+INVAR
+(location = rem_rem_default -> true & true & true) & (location = rem_try_default -> true & fischer_agent_2_x <= a & true) & (location = rem_waits_default -> true & true & true) & (location = rem_cs_default -> true & true & true) & (location = rem_rem1_default -> true & true & true) & (location = rem_try1_default -> true & fischer_agent_2_x <= a & true) & (location = rem_waits1_default -> true & true & true) & (location = rem_try2_default -> true & fischer_agent_2_x <= a & true) & (location = rem_rem2_default -> true & fischer_agent_2_x <= a & true) & (location = try_rem_default -> fischer_agent_1_x <= a & true & true) & (location = try_try_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try_waits_default -> fischer_agent_1_x <= a & true & true) & (location = try_cs_default -> fischer_agent_1_x <= a & true & true) & (location = try_rem1_default -> fischer_agent_1_x <= a & true & true) & (location = try_try1_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try_waits1_default -> fischer_agent_1_x <= a & true & true) & (location = try_try2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try_rem2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = waits_rem_default -> true & true & true) & (location = waits_try_default -> true & fischer_agent_2_x <= a & true) & (location = waits_waits_default -> true & true & true) & (location = waits_cs_default -> true & true & true) & (location = waits_rem1_default -> true & true & true) & (location = waits_try1_default -> true & fischer_agent_2_x <= a & true) & (location = waits_waits1_default -> true & true & true) & (location = waits_try2_default -> true & fischer_agent_2_x <= a & true) & (location = waits_rem2_default -> true & fischer_agent_2_x <= a & true) & (location = cs_rem_default -> true & true & true) & (location = cs_try_default -> true & fischer_agent_2_x <= a & true) & (location = cs_waits_default -> true & true & true) & (location = cs_cs_default -> true & true & true) & (location = cs_rem1_default -> true & true & true) & (location = cs_try1_default -> true & fischer_agent_2_x <= a & true) & (location = cs_waits1_default -> true & true & true) & (location = cs_try2_default -> true & fischer_agent_2_x <= a & true) & (location = cs_rem2_default -> true & fischer_agent_2_x <= a & true) & (location = rem1_rem_default -> true & true & true) & (location = rem1_try_default -> true & fischer_agent_2_x <= a & true) & (location = rem1_waits_default -> true & true & true) & (location = rem1_cs_default -> true & true & true) & (location = rem1_rem1_default -> true & true & true) & (location = rem1_try1_default -> true & fischer_agent_2_x <= a & true) & (location = rem1_waits1_default -> true & true & true) & (location = rem1_try2_default -> true & fischer_agent_2_x <= a & true) & (location = rem1_rem2_default -> true & fischer_agent_2_x <= a & true) & (location = try1_rem_default -> fischer_agent_1_x <= a & true & true) & (location = try1_try_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try1_waits_default -> fischer_agent_1_x <= a & true & true) & (location = try1_cs_default -> fischer_agent_1_x <= a & true & true) & (location = try1_rem1_default -> fischer_agent_1_x <= a & true & true) & (location = try1_try1_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try1_waits1_default -> fischer_agent_1_x <= a & true & true) & (location = try1_try2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try1_rem2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = waits1_rem_default -> true & true & true) & (location = waits1_try_default -> true & fischer_agent_2_x <= a & true) & (location = waits1_waits_default -> true & true & true) & (location = waits1_cs_default -> true & true & true) & (location = waits1_rem1_default -> true & true & true) & (location = waits1_try1_default -> true & fischer_agent_2_x <= a & true) & (location = waits1_waits1_default -> true & true & true) & (location = waits1_try2_default -> true & fischer_agent_2_x <= a & true) & (location = waits1_rem2_default -> true & fischer_agent_2_x <= a & true) & (location = try2_rem_default -> fischer_agent_1_x <= a & true & true) & (location = try2_try_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try2_waits_default -> fischer_agent_1_x <= a & true & true) & (location = try2_cs_default -> fischer_agent_1_x <= a & true & true) & (location = try2_rem1_default -> fischer_agent_1_x <= a & true & true) & (location = try2_try1_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try2_waits1_default -> fischer_agent_1_x <= a & true & true) & (location = try2_try2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = try2_rem2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = rem2_rem_default -> fischer_agent_1_x <= a & true & true) & (location = rem2_try_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = rem2_waits_default -> fischer_agent_1_x <= a & true & true) & (location = rem2_cs_default -> fischer_agent_1_x <= a & true & true) & (location = rem2_rem1_default -> fischer_agent_1_x <= a & true & true) & (location = rem2_try1_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = rem2_waits1_default -> fischer_agent_1_x <= a & true & true) & (location = rem2_try2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true) & (location = rem2_rem2_default -> fischer_agent_1_x <= a & fischer_agent_2_x <= a & true);
+-- end modes
+
+TRANS
+  -- rem_rem_default -> try_rem_default (1 -> 10)
+    (location = rem_rem_default & g = 0.0 & next(location) = try_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_rem_default -> rem_try_default (1 -> 2)
+     | (location = rem_rem_default & g = 0.0 & next(location) = rem_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_rem_default -> rem_rem_default (1 -> 1)
+     | (location = rem_rem_default & (true) & next(location) = rem_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_try_default -> try_try_default (2 -> 11)
+     | (location = rem_try_default & g = 0.0 & next(location) = try_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_try_default -> rem_waits_default (2 -> 3)
+     | (location = rem_try_default & (true) & next(location) = rem_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_try_default -> rem_try_default (2 -> 2)
+     | (location = rem_try_default & (true) & next(location) = rem_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_waits_default -> try_waits_default (3 -> 12)
+     | (location = rem_waits_default & g = 0.0 & next(location) = try_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits_default -> rem_rem_default (3 -> 1)
+     | (location = rem_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits_default -> rem_rem_default (3 -> 1)
+     | (location = rem_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits_default -> rem_waits_default (3 -> 3)
+     | (location = rem_waits_default & (true) & next(location) = rem_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits_default -> rem_rem1_default (3 -> 5)
+     | (location = rem_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits_default -> rem_waits_default (3 -> 3)
+     | (location = rem_waits_default & (true) & next(location) = rem_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_cs_default -> try_cs_default (4 -> 13)
+     | (location = rem_cs_default & g = 0.0 & next(location) = try_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_cs_default -> rem_try2_default (4 -> 8)
+     | (location = rem_cs_default & g = 0.0 & next(location) = rem_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_cs_default -> rem_cs_default (4 -> 4)
+     | (location = rem_cs_default & (true) & next(location) = rem_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_rem1_default -> try_rem1_default (5 -> 14)
+     | (location = rem_rem1_default & g = 0.0 & next(location) = try_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_rem1_default -> rem_try1_default (5 -> 6)
+     | (location = rem_rem1_default & v = 0.0 & next(location) = rem_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_rem1_default -> rem_rem_default (5 -> 1)
+     | (location = rem_rem1_default & v = 1.0 & next(location) = rem_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_rem1_default -> rem_rem1_default (5 -> 5)
+     | (location = rem_rem1_default & (true) & next(location) = rem_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_try1_default -> try_try1_default (6 -> 15)
+     | (location = rem_try1_default & g = 0.0 & next(location) = try_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_try1_default -> rem_waits1_default (6 -> 7)
+     | (location = rem_try1_default & (true) & next(location) = rem_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_try1_default -> rem_try1_default (6 -> 6)
+     | (location = rem_try1_default & (true) & next(location) = rem_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_waits1_default -> try_waits1_default (7 -> 16)
+     | (location = rem_waits1_default & g = 0.0 & next(location) = try_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits1_default -> rem_rem_default (7 -> 1)
+     | (location = rem_waits1_default & g > fischer_agent_2_i & next(location) = rem_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits1_default -> rem_rem_default (7 -> 1)
+     | (location = rem_waits1_default & g < fischer_agent_2_i & next(location) = rem_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits1_default -> rem_cs_default (7 -> 4)
+     | (location = rem_waits1_default & g = fischer_agent_2_i & next(location) = rem_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_waits1_default -> rem_waits1_default (7 -> 7)
+     | (location = rem_waits1_default & (true) & next(location) = rem_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_try2_default -> try_try2_default (8 -> 17)
+     | (location = rem_try2_default & g = 0.0 & next(location) = try_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_try2_default -> rem_rem2_default (8 -> 9)
+     | (location = rem_try2_default & fischer_agent_2_x >= b & next(location) = rem_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_try2_default -> rem_try2_default (8 -> 8)
+     | (location = rem_try2_default & (true) & next(location) = rem_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem_rem2_default -> try_rem2_default (9 -> 18)
+     | (location = rem_rem2_default & g = 0.0 & next(location) = try_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem_rem2_default -> rem_rem2_default (9 -> 9)
+     | (location = rem_rem2_default & (true) & next(location) = rem_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_rem_default -> try_try_default (10 -> 11)
+     | (location = try_rem_default & g = 0.0 & next(location) = try_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_rem_default -> try_rem_default (10 -> 10)
+     | (location = try_rem_default & (true) & next(location) = try_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_rem_default -> waits_rem_default (10 -> 19)
+     | (location = try_rem_default & true & true & next(location) = waits_rem_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_try_default -> try_waits_default (11 -> 12)
+     | (location = try_try_default & (true) & next(location) = try_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_try_default -> try_try_default (11 -> 11)
+     | (location = try_try_default & (true) & next(location) = try_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_try_default -> waits_try_default (11 -> 20)
+     | (location = try_try_default & true & true & next(location) = waits_try_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_waits_default -> try_rem_default (12 -> 10)
+     | (location = try_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits_default -> try_rem_default (12 -> 10)
+     | (location = try_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits_default -> try_waits_default (12 -> 12)
+     | (location = try_waits_default & (true) & next(location) = try_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits_default -> try_rem1_default (12 -> 14)
+     | (location = try_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits_default -> try_waits_default (12 -> 12)
+     | (location = try_waits_default & (true) & next(location) = try_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_waits_default -> waits_waits_default (12 -> 21)
+     | (location = try_waits_default & true & true & next(location) = waits_waits_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_cs_default -> try_try2_default (13 -> 17)
+     | (location = try_cs_default & g = 0.0 & next(location) = try_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_cs_default -> try_cs_default (13 -> 13)
+     | (location = try_cs_default & (true) & next(location) = try_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_cs_default -> waits_cs_default (13 -> 22)
+     | (location = try_cs_default & true & true & next(location) = waits_cs_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_rem1_default -> try_try1_default (14 -> 15)
+     | (location = try_rem1_default & v = 0.0 & next(location) = try_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_rem1_default -> try_rem_default (14 -> 10)
+     | (location = try_rem1_default & v = 1.0 & next(location) = try_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_rem1_default -> try_rem1_default (14 -> 14)
+     | (location = try_rem1_default & (true) & next(location) = try_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_rem1_default -> waits_rem1_default (14 -> 23)
+     | (location = try_rem1_default & true & true & next(location) = waits_rem1_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_try1_default -> try_waits1_default (15 -> 16)
+     | (location = try_try1_default & (true) & next(location) = try_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_try1_default -> try_try1_default (15 -> 15)
+     | (location = try_try1_default & (true) & next(location) = try_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_try1_default -> waits_try1_default (15 -> 24)
+     | (location = try_try1_default & true & true & next(location) = waits_try1_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_waits1_default -> try_rem_default (16 -> 10)
+     | (location = try_waits1_default & g > fischer_agent_2_i & next(location) = try_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits1_default -> try_rem_default (16 -> 10)
+     | (location = try_waits1_default & g < fischer_agent_2_i & next(location) = try_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits1_default -> try_cs_default (16 -> 13)
+     | (location = try_waits1_default & g = fischer_agent_2_i & next(location) = try_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_waits1_default -> try_waits1_default (16 -> 16)
+     | (location = try_waits1_default & (true) & next(location) = try_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_waits1_default -> waits_waits1_default (16 -> 25)
+     | (location = try_waits1_default & true & true & next(location) = waits_waits1_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_try2_default -> try_rem2_default (17 -> 18)
+     | (location = try_try2_default & fischer_agent_2_x >= b & next(location) = try_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try_try2_default -> try_try2_default (17 -> 17)
+     | (location = try_try2_default & (true) & next(location) = try_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_try2_default -> waits_try2_default (17 -> 26)
+     | (location = try_try2_default & true & true & next(location) = waits_try2_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_rem2_default -> try_rem2_default (18 -> 18)
+     | (location = try_rem2_default & (true) & next(location) = try_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try_rem2_default -> waits_rem2_default (18 -> 27)
+     | (location = try_rem2_default & true & true & next(location) = waits_rem2_default & next(fischer_agent_1_x) = 0.0 & next(clock) = clock  & next(g) = 1.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_rem_default -> rem_rem_default (19 -> 1)
+     | (location = waits_rem_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem_default -> rem_rem_default (19 -> 1)
+     | (location = waits_rem_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem_default -> waits_rem_default (19 -> 19)
+     | (location = waits_rem_default & (true) & next(location) = waits_rem_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem_default -> rem1_rem_default (19 -> 37)
+     | (location = waits_rem_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem_default -> waits_try_default (19 -> 20)
+     | (location = waits_rem_default & g = 0.0 & next(location) = waits_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem_default -> waits_rem_default (19 -> 19)
+     | (location = waits_rem_default & (true) & next(location) = waits_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_try_default -> rem_try_default (20 -> 2)
+     | (location = waits_try_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try_default -> rem_try_default (20 -> 2)
+     | (location = waits_try_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try_default -> waits_try_default (20 -> 20)
+     | (location = waits_try_default & (true) & next(location) = waits_try_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try_default -> rem1_try_default (20 -> 38)
+     | (location = waits_try_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try_default -> waits_waits_default (20 -> 21)
+     | (location = waits_try_default & (true) & next(location) = waits_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try_default -> waits_try_default (20 -> 20)
+     | (location = waits_try_default & (true) & next(location) = waits_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_waits_default -> rem_waits_default (21 -> 3)
+     | (location = waits_waits_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> rem_waits_default (21 -> 3)
+     | (location = waits_waits_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> waits_waits_default (21 -> 21)
+     | (location = waits_waits_default & (true) & next(location) = waits_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> rem1_waits_default (21 -> 39)
+     | (location = waits_waits_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> waits_rem_default (21 -> 19)
+     | (location = waits_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = waits_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> waits_rem_default (21 -> 19)
+     | (location = waits_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = waits_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> waits_waits_default (21 -> 21)
+     | (location = waits_waits_default & (true) & next(location) = waits_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> waits_rem1_default (21 -> 23)
+     | (location = waits_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = waits_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits_default -> waits_waits_default (21 -> 21)
+     | (location = waits_waits_default & (true) & next(location) = waits_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_cs_default -> rem_cs_default (22 -> 4)
+     | (location = waits_cs_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_cs_default -> rem_cs_default (22 -> 4)
+     | (location = waits_cs_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_cs_default -> waits_cs_default (22 -> 22)
+     | (location = waits_cs_default & (true) & next(location) = waits_cs_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_cs_default -> rem1_cs_default (22 -> 40)
+     | (location = waits_cs_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_cs_default -> waits_try2_default (22 -> 26)
+     | (location = waits_cs_default & g = 0.0 & next(location) = waits_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_cs_default -> waits_cs_default (22 -> 22)
+     | (location = waits_cs_default & (true) & next(location) = waits_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_rem1_default -> rem_rem1_default (23 -> 5)
+     | (location = waits_rem1_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem1_default -> rem_rem1_default (23 -> 5)
+     | (location = waits_rem1_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem1_default -> waits_rem1_default (23 -> 23)
+     | (location = waits_rem1_default & (true) & next(location) = waits_rem1_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem1_default -> rem1_rem1_default (23 -> 41)
+     | (location = waits_rem1_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem1_default -> waits_try1_default (23 -> 24)
+     | (location = waits_rem1_default & v = 0.0 & next(location) = waits_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem1_default -> waits_rem_default (23 -> 19)
+     | (location = waits_rem1_default & v = 1.0 & next(location) = waits_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem1_default -> waits_rem1_default (23 -> 23)
+     | (location = waits_rem1_default & (true) & next(location) = waits_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_try1_default -> rem_try1_default (24 -> 6)
+     | (location = waits_try1_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try1_default -> rem_try1_default (24 -> 6)
+     | (location = waits_try1_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try1_default -> waits_try1_default (24 -> 24)
+     | (location = waits_try1_default & (true) & next(location) = waits_try1_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try1_default -> rem1_try1_default (24 -> 42)
+     | (location = waits_try1_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try1_default -> waits_waits1_default (24 -> 25)
+     | (location = waits_try1_default & (true) & next(location) = waits_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try1_default -> waits_try1_default (24 -> 24)
+     | (location = waits_try1_default & (true) & next(location) = waits_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_waits1_default -> rem_waits1_default (25 -> 7)
+     | (location = waits_waits1_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> rem_waits1_default (25 -> 7)
+     | (location = waits_waits1_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> waits_waits1_default (25 -> 25)
+     | (location = waits_waits1_default & (true) & next(location) = waits_waits1_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> rem1_waits1_default (25 -> 43)
+     | (location = waits_waits1_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> waits_rem_default (25 -> 19)
+     | (location = waits_waits1_default & g > fischer_agent_2_i & next(location) = waits_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> waits_rem_default (25 -> 19)
+     | (location = waits_waits1_default & g < fischer_agent_2_i & next(location) = waits_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> waits_cs_default (25 -> 22)
+     | (location = waits_waits1_default & g = fischer_agent_2_i & next(location) = waits_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_waits1_default -> waits_waits1_default (25 -> 25)
+     | (location = waits_waits1_default & (true) & next(location) = waits_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_try2_default -> rem_try2_default (26 -> 8)
+     | (location = waits_try2_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try2_default -> rem_try2_default (26 -> 8)
+     | (location = waits_try2_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try2_default -> waits_try2_default (26 -> 26)
+     | (location = waits_try2_default & (true) & next(location) = waits_try2_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try2_default -> rem1_try2_default (26 -> 44)
+     | (location = waits_try2_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try2_default -> waits_rem2_default (26 -> 27)
+     | (location = waits_try2_default & fischer_agent_2_x >= b & next(location) = waits_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_try2_default -> waits_try2_default (26 -> 26)
+     | (location = waits_try2_default & (true) & next(location) = waits_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits_rem2_default -> rem_rem2_default (27 -> 9)
+     | (location = waits_rem2_default & g < fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem2_default -> rem_rem2_default (27 -> 9)
+     | (location = waits_rem2_default & g > fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem2_default -> waits_rem2_default (27 -> 27)
+     | (location = waits_rem2_default & (true) & next(location) = waits_rem2_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem2_default -> rem1_rem2_default (27 -> 45)
+     | (location = waits_rem2_default & g = fischer_agent_1_i & fischer_agent_1_x >= b & next(location) = rem1_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits_rem2_default -> waits_rem2_default (27 -> 27)
+     | (location = waits_rem2_default & (true) & next(location) = waits_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_rem_default -> try2_rem_default (28 -> 64)
+     | (location = cs_rem_default & g = 0.0 & next(location) = try2_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_rem_default -> cs_try_default (28 -> 29)
+     | (location = cs_rem_default & g = 0.0 & next(location) = cs_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_rem_default -> cs_rem_default (28 -> 28)
+     | (location = cs_rem_default & (true) & next(location) = cs_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_try_default -> try2_try_default (29 -> 65)
+     | (location = cs_try_default & g = 0.0 & next(location) = try2_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_try_default -> cs_waits_default (29 -> 30)
+     | (location = cs_try_default & (true) & next(location) = cs_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_try_default -> cs_try_default (29 -> 29)
+     | (location = cs_try_default & (true) & next(location) = cs_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_waits_default -> try2_waits_default (30 -> 66)
+     | (location = cs_waits_default & g = 0.0 & next(location) = try2_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits_default -> cs_rem_default (30 -> 28)
+     | (location = cs_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = cs_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits_default -> cs_rem_default (30 -> 28)
+     | (location = cs_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = cs_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits_default -> cs_waits_default (30 -> 30)
+     | (location = cs_waits_default & (true) & next(location) = cs_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits_default -> cs_rem1_default (30 -> 32)
+     | (location = cs_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = cs_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits_default -> cs_waits_default (30 -> 30)
+     | (location = cs_waits_default & (true) & next(location) = cs_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_cs_default -> try2_cs_default (31 -> 67)
+     | (location = cs_cs_default & g = 0.0 & next(location) = try2_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_cs_default -> cs_try2_default (31 -> 35)
+     | (location = cs_cs_default & g = 0.0 & next(location) = cs_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_cs_default -> cs_cs_default (31 -> 31)
+     | (location = cs_cs_default & (true) & next(location) = cs_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_rem1_default -> try2_rem1_default (32 -> 68)
+     | (location = cs_rem1_default & g = 0.0 & next(location) = try2_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_rem1_default -> cs_try1_default (32 -> 33)
+     | (location = cs_rem1_default & v = 0.0 & next(location) = cs_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_rem1_default -> cs_rem_default (32 -> 28)
+     | (location = cs_rem1_default & v = 1.0 & next(location) = cs_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_rem1_default -> cs_rem1_default (32 -> 32)
+     | (location = cs_rem1_default & (true) & next(location) = cs_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_try1_default -> try2_try1_default (33 -> 69)
+     | (location = cs_try1_default & g = 0.0 & next(location) = try2_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_try1_default -> cs_waits1_default (33 -> 34)
+     | (location = cs_try1_default & (true) & next(location) = cs_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_try1_default -> cs_try1_default (33 -> 33)
+     | (location = cs_try1_default & (true) & next(location) = cs_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_waits1_default -> try2_waits1_default (34 -> 70)
+     | (location = cs_waits1_default & g = 0.0 & next(location) = try2_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits1_default -> cs_rem_default (34 -> 28)
+     | (location = cs_waits1_default & g > fischer_agent_2_i & next(location) = cs_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits1_default -> cs_rem_default (34 -> 28)
+     | (location = cs_waits1_default & g < fischer_agent_2_i & next(location) = cs_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits1_default -> cs_cs_default (34 -> 31)
+     | (location = cs_waits1_default & g = fischer_agent_2_i & next(location) = cs_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_waits1_default -> cs_waits1_default (34 -> 34)
+     | (location = cs_waits1_default & (true) & next(location) = cs_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_try2_default -> try2_try2_default (35 -> 71)
+     | (location = cs_try2_default & g = 0.0 & next(location) = try2_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_try2_default -> cs_rem2_default (35 -> 36)
+     | (location = cs_try2_default & fischer_agent_2_x >= b & next(location) = cs_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_try2_default -> cs_try2_default (35 -> 35)
+     | (location = cs_try2_default & (true) & next(location) = cs_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- cs_rem2_default -> try2_rem2_default (36 -> 72)
+     | (location = cs_rem2_default & g = 0.0 & next(location) = try2_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- cs_rem2_default -> cs_rem2_default (36 -> 36)
+     | (location = cs_rem2_default & (true) & next(location) = cs_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_rem_default -> try1_rem_default (37 -> 46)
+     | (location = rem1_rem_default & v = 0.0 & next(location) = try1_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem_default -> rem_rem_default (37 -> 1)
+     | (location = rem1_rem_default & v = 1.0 & next(location) = rem_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem_default -> rem1_try_default (37 -> 38)
+     | (location = rem1_rem_default & g = 0.0 & next(location) = rem1_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem_default -> rem1_rem_default (37 -> 37)
+     | (location = rem1_rem_default & (true) & next(location) = rem1_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_try_default -> try1_try_default (38 -> 47)
+     | (location = rem1_try_default & v = 0.0 & next(location) = try1_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try_default -> rem_try_default (38 -> 2)
+     | (location = rem1_try_default & v = 1.0 & next(location) = rem_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try_default -> rem1_waits_default (38 -> 39)
+     | (location = rem1_try_default & (true) & next(location) = rem1_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try_default -> rem1_try_default (38 -> 38)
+     | (location = rem1_try_default & (true) & next(location) = rem1_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_waits_default -> try1_waits_default (39 -> 48)
+     | (location = rem1_waits_default & v = 0.0 & next(location) = try1_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits_default -> rem_waits_default (39 -> 3)
+     | (location = rem1_waits_default & v = 1.0 & next(location) = rem_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits_default -> rem1_rem_default (39 -> 37)
+     | (location = rem1_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits_default -> rem1_rem_default (39 -> 37)
+     | (location = rem1_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits_default -> rem1_waits_default (39 -> 39)
+     | (location = rem1_waits_default & (true) & next(location) = rem1_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits_default -> rem1_rem1_default (39 -> 41)
+     | (location = rem1_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem1_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits_default -> rem1_waits_default (39 -> 39)
+     | (location = rem1_waits_default & (true) & next(location) = rem1_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_cs_default -> try1_cs_default (40 -> 49)
+     | (location = rem1_cs_default & v = 0.0 & next(location) = try1_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_cs_default -> rem_cs_default (40 -> 4)
+     | (location = rem1_cs_default & v = 1.0 & next(location) = rem_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_cs_default -> rem1_try2_default (40 -> 44)
+     | (location = rem1_cs_default & g = 0.0 & next(location) = rem1_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_cs_default -> rem1_cs_default (40 -> 40)
+     | (location = rem1_cs_default & (true) & next(location) = rem1_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_rem1_default -> try1_rem1_default (41 -> 50)
+     | (location = rem1_rem1_default & v = 0.0 & next(location) = try1_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem1_default -> rem_rem1_default (41 -> 5)
+     | (location = rem1_rem1_default & v = 1.0 & next(location) = rem_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem1_default -> rem1_try1_default (41 -> 42)
+     | (location = rem1_rem1_default & v = 0.0 & next(location) = rem1_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem1_default -> rem1_rem_default (41 -> 37)
+     | (location = rem1_rem1_default & v = 1.0 & next(location) = rem1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem1_default -> rem1_rem1_default (41 -> 41)
+     | (location = rem1_rem1_default & (true) & next(location) = rem1_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_try1_default -> try1_try1_default (42 -> 51)
+     | (location = rem1_try1_default & v = 0.0 & next(location) = try1_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try1_default -> rem_try1_default (42 -> 6)
+     | (location = rem1_try1_default & v = 1.0 & next(location) = rem_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try1_default -> rem1_waits1_default (42 -> 43)
+     | (location = rem1_try1_default & (true) & next(location) = rem1_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try1_default -> rem1_try1_default (42 -> 42)
+     | (location = rem1_try1_default & (true) & next(location) = rem1_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_waits1_default -> try1_waits1_default (43 -> 52)
+     | (location = rem1_waits1_default & v = 0.0 & next(location) = try1_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits1_default -> rem_waits1_default (43 -> 7)
+     | (location = rem1_waits1_default & v = 1.0 & next(location) = rem_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits1_default -> rem1_rem_default (43 -> 37)
+     | (location = rem1_waits1_default & g > fischer_agent_2_i & next(location) = rem1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits1_default -> rem1_rem_default (43 -> 37)
+     | (location = rem1_waits1_default & g < fischer_agent_2_i & next(location) = rem1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits1_default -> rem1_cs_default (43 -> 40)
+     | (location = rem1_waits1_default & g = fischer_agent_2_i & next(location) = rem1_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_waits1_default -> rem1_waits1_default (43 -> 43)
+     | (location = rem1_waits1_default & (true) & next(location) = rem1_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_try2_default -> try1_try2_default (44 -> 53)
+     | (location = rem1_try2_default & v = 0.0 & next(location) = try1_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try2_default -> rem_try2_default (44 -> 8)
+     | (location = rem1_try2_default & v = 1.0 & next(location) = rem_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try2_default -> rem1_rem2_default (44 -> 45)
+     | (location = rem1_try2_default & fischer_agent_2_x >= b & next(location) = rem1_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_try2_default -> rem1_try2_default (44 -> 44)
+     | (location = rem1_try2_default & (true) & next(location) = rem1_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem1_rem2_default -> try1_rem2_default (45 -> 54)
+     | (location = rem1_rem2_default & v = 0.0 & next(location) = try1_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem2_default -> rem_rem2_default (45 -> 9)
+     | (location = rem1_rem2_default & v = 1.0 & next(location) = rem_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem1_rem2_default -> rem1_rem2_default (45 -> 45)
+     | (location = rem1_rem2_default & (true) & next(location) = rem1_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_rem_default -> waits1_rem_default (46 -> 55)
+     | (location = try1_rem_default & (true) & next(location) = waits1_rem_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_rem_default -> try1_try_default (46 -> 47)
+     | (location = try1_rem_default & g = 0.0 & next(location) = try1_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_rem_default -> try1_rem_default (46 -> 46)
+     | (location = try1_rem_default & (true) & next(location) = try1_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_try_default -> waits1_try_default (47 -> 56)
+     | (location = try1_try_default & (true) & next(location) = waits1_try_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_try_default -> try1_waits_default (47 -> 48)
+     | (location = try1_try_default & (true) & next(location) = try1_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_try_default -> try1_try_default (47 -> 47)
+     | (location = try1_try_default & (true) & next(location) = try1_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_waits_default -> waits1_waits_default (48 -> 57)
+     | (location = try1_waits_default & (true) & next(location) = waits1_waits_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits_default -> try1_rem_default (48 -> 46)
+     | (location = try1_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits_default -> try1_rem_default (48 -> 46)
+     | (location = try1_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits_default -> try1_waits_default (48 -> 48)
+     | (location = try1_waits_default & (true) & next(location) = try1_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits_default -> try1_rem1_default (48 -> 50)
+     | (location = try1_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try1_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits_default -> try1_waits_default (48 -> 48)
+     | (location = try1_waits_default & (true) & next(location) = try1_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_cs_default -> waits1_cs_default (49 -> 58)
+     | (location = try1_cs_default & (true) & next(location) = waits1_cs_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_cs_default -> try1_try2_default (49 -> 53)
+     | (location = try1_cs_default & g = 0.0 & next(location) = try1_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_cs_default -> try1_cs_default (49 -> 49)
+     | (location = try1_cs_default & (true) & next(location) = try1_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_rem1_default -> waits1_rem1_default (50 -> 59)
+     | (location = try1_rem1_default & (true) & next(location) = waits1_rem1_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_rem1_default -> try1_try1_default (50 -> 51)
+     | (location = try1_rem1_default & v = 0.0 & next(location) = try1_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_rem1_default -> try1_rem_default (50 -> 46)
+     | (location = try1_rem1_default & v = 1.0 & next(location) = try1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_rem1_default -> try1_rem1_default (50 -> 50)
+     | (location = try1_rem1_default & (true) & next(location) = try1_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_try1_default -> waits1_try1_default (51 -> 60)
+     | (location = try1_try1_default & (true) & next(location) = waits1_try1_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_try1_default -> try1_waits1_default (51 -> 52)
+     | (location = try1_try1_default & (true) & next(location) = try1_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_try1_default -> try1_try1_default (51 -> 51)
+     | (location = try1_try1_default & (true) & next(location) = try1_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_waits1_default -> waits1_waits1_default (52 -> 61)
+     | (location = try1_waits1_default & (true) & next(location) = waits1_waits1_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits1_default -> try1_rem_default (52 -> 46)
+     | (location = try1_waits1_default & g > fischer_agent_2_i & next(location) = try1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits1_default -> try1_rem_default (52 -> 46)
+     | (location = try1_waits1_default & g < fischer_agent_2_i & next(location) = try1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits1_default -> try1_cs_default (52 -> 49)
+     | (location = try1_waits1_default & g = fischer_agent_2_i & next(location) = try1_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_waits1_default -> try1_waits1_default (52 -> 52)
+     | (location = try1_waits1_default & (true) & next(location) = try1_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_try2_default -> waits1_try2_default (53 -> 62)
+     | (location = try1_try2_default & (true) & next(location) = waits1_try2_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_try2_default -> try1_rem2_default (53 -> 54)
+     | (location = try1_try2_default & fischer_agent_2_x >= b & next(location) = try1_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_try2_default -> try1_try2_default (53 -> 53)
+     | (location = try1_try2_default & (true) & next(location) = try1_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try1_rem2_default -> waits1_rem2_default (54 -> 63)
+     | (location = try1_rem2_default & (true) & next(location) = waits1_rem2_default & next(v) = 1.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try1_rem2_default -> try1_rem2_default (54 -> 54)
+     | (location = try1_rem2_default & (true) & next(location) = try1_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_rem_default -> rem_rem_default (55 -> 1)
+     | (location = waits1_rem_default & g > fischer_agent_1_i & next(location) = rem_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem_default -> rem_rem_default (55 -> 1)
+     | (location = waits1_rem_default & g < fischer_agent_1_i & next(location) = rem_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem_default -> cs_rem_default (55 -> 28)
+     | (location = waits1_rem_default & g = fischer_agent_1_i & next(location) = cs_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem_default -> waits1_try_default (55 -> 56)
+     | (location = waits1_rem_default & g = 0.0 & next(location) = waits1_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem_default -> waits1_rem_default (55 -> 55)
+     | (location = waits1_rem_default & (true) & next(location) = waits1_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_try_default -> rem_try_default (56 -> 2)
+     | (location = waits1_try_default & g > fischer_agent_1_i & next(location) = rem_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try_default -> rem_try_default (56 -> 2)
+     | (location = waits1_try_default & g < fischer_agent_1_i & next(location) = rem_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try_default -> cs_try_default (56 -> 29)
+     | (location = waits1_try_default & g = fischer_agent_1_i & next(location) = cs_try_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try_default -> waits1_waits_default (56 -> 57)
+     | (location = waits1_try_default & (true) & next(location) = waits1_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try_default -> waits1_try_default (56 -> 56)
+     | (location = waits1_try_default & (true) & next(location) = waits1_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_waits_default -> rem_waits_default (57 -> 3)
+     | (location = waits1_waits_default & g > fischer_agent_1_i & next(location) = rem_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> rem_waits_default (57 -> 3)
+     | (location = waits1_waits_default & g < fischer_agent_1_i & next(location) = rem_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> cs_waits_default (57 -> 30)
+     | (location = waits1_waits_default & g = fischer_agent_1_i & next(location) = cs_waits_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> waits1_rem_default (57 -> 55)
+     | (location = waits1_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = waits1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> waits1_rem_default (57 -> 55)
+     | (location = waits1_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = waits1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> waits1_waits_default (57 -> 57)
+     | (location = waits1_waits_default & (true) & next(location) = waits1_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> waits1_rem1_default (57 -> 59)
+     | (location = waits1_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = waits1_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits_default -> waits1_waits_default (57 -> 57)
+     | (location = waits1_waits_default & (true) & next(location) = waits1_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_cs_default -> rem_cs_default (58 -> 4)
+     | (location = waits1_cs_default & g > fischer_agent_1_i & next(location) = rem_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_cs_default -> rem_cs_default (58 -> 4)
+     | (location = waits1_cs_default & g < fischer_agent_1_i & next(location) = rem_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_cs_default -> cs_cs_default (58 -> 31)
+     | (location = waits1_cs_default & g = fischer_agent_1_i & next(location) = cs_cs_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_cs_default -> waits1_try2_default (58 -> 62)
+     | (location = waits1_cs_default & g = 0.0 & next(location) = waits1_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_cs_default -> waits1_cs_default (58 -> 58)
+     | (location = waits1_cs_default & (true) & next(location) = waits1_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_rem1_default -> rem_rem1_default (59 -> 5)
+     | (location = waits1_rem1_default & g > fischer_agent_1_i & next(location) = rem_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem1_default -> rem_rem1_default (59 -> 5)
+     | (location = waits1_rem1_default & g < fischer_agent_1_i & next(location) = rem_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem1_default -> cs_rem1_default (59 -> 32)
+     | (location = waits1_rem1_default & g = fischer_agent_1_i & next(location) = cs_rem1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem1_default -> waits1_try1_default (59 -> 60)
+     | (location = waits1_rem1_default & v = 0.0 & next(location) = waits1_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem1_default -> waits1_rem_default (59 -> 55)
+     | (location = waits1_rem1_default & v = 1.0 & next(location) = waits1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem1_default -> waits1_rem1_default (59 -> 59)
+     | (location = waits1_rem1_default & (true) & next(location) = waits1_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_try1_default -> rem_try1_default (60 -> 6)
+     | (location = waits1_try1_default & g > fischer_agent_1_i & next(location) = rem_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try1_default -> rem_try1_default (60 -> 6)
+     | (location = waits1_try1_default & g < fischer_agent_1_i & next(location) = rem_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try1_default -> cs_try1_default (60 -> 33)
+     | (location = waits1_try1_default & g = fischer_agent_1_i & next(location) = cs_try1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try1_default -> waits1_waits1_default (60 -> 61)
+     | (location = waits1_try1_default & (true) & next(location) = waits1_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try1_default -> waits1_try1_default (60 -> 60)
+     | (location = waits1_try1_default & (true) & next(location) = waits1_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_waits1_default -> rem_waits1_default (61 -> 7)
+     | (location = waits1_waits1_default & g > fischer_agent_1_i & next(location) = rem_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits1_default -> rem_waits1_default (61 -> 7)
+     | (location = waits1_waits1_default & g < fischer_agent_1_i & next(location) = rem_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits1_default -> cs_waits1_default (61 -> 34)
+     | (location = waits1_waits1_default & g = fischer_agent_1_i & next(location) = cs_waits1_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits1_default -> waits1_rem_default (61 -> 55)
+     | (location = waits1_waits1_default & g > fischer_agent_2_i & next(location) = waits1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits1_default -> waits1_rem_default (61 -> 55)
+     | (location = waits1_waits1_default & g < fischer_agent_2_i & next(location) = waits1_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits1_default -> waits1_cs_default (61 -> 58)
+     | (location = waits1_waits1_default & g = fischer_agent_2_i & next(location) = waits1_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_waits1_default -> waits1_waits1_default (61 -> 61)
+     | (location = waits1_waits1_default & (true) & next(location) = waits1_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_try2_default -> rem_try2_default (62 -> 8)
+     | (location = waits1_try2_default & g > fischer_agent_1_i & next(location) = rem_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try2_default -> rem_try2_default (62 -> 8)
+     | (location = waits1_try2_default & g < fischer_agent_1_i & next(location) = rem_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try2_default -> cs_try2_default (62 -> 35)
+     | (location = waits1_try2_default & g = fischer_agent_1_i & next(location) = cs_try2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try2_default -> waits1_rem2_default (62 -> 63)
+     | (location = waits1_try2_default & fischer_agent_2_x >= b & next(location) = waits1_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_try2_default -> waits1_try2_default (62 -> 62)
+     | (location = waits1_try2_default & (true) & next(location) = waits1_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- waits1_rem2_default -> rem_rem2_default (63 -> 9)
+     | (location = waits1_rem2_default & g > fischer_agent_1_i & next(location) = rem_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem2_default -> rem_rem2_default (63 -> 9)
+     | (location = waits1_rem2_default & g < fischer_agent_1_i & next(location) = rem_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem2_default -> cs_rem2_default (63 -> 36)
+     | (location = waits1_rem2_default & g = fischer_agent_1_i & next(location) = cs_rem2_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- waits1_rem2_default -> waits1_rem2_default (63 -> 63)
+     | (location = waits1_rem2_default & (true) & next(location) = waits1_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_rem_default -> rem2_rem_default (64 -> 73)
+     | (location = try2_rem_default & fischer_agent_1_x >= b & next(location) = rem2_rem_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_rem_default -> try2_try_default (64 -> 65)
+     | (location = try2_rem_default & g = 0.0 & next(location) = try2_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_rem_default -> try2_rem_default (64 -> 64)
+     | (location = try2_rem_default & (true) & next(location) = try2_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_try_default -> rem2_try_default (65 -> 74)
+     | (location = try2_try_default & fischer_agent_1_x >= b & next(location) = rem2_try_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_try_default -> try2_waits_default (65 -> 66)
+     | (location = try2_try_default & (true) & next(location) = try2_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_try_default -> try2_try_default (65 -> 65)
+     | (location = try2_try_default & (true) & next(location) = try2_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_waits_default -> rem2_waits_default (66 -> 75)
+     | (location = try2_waits_default & fischer_agent_1_x >= b & next(location) = rem2_waits_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits_default -> try2_rem_default (66 -> 64)
+     | (location = try2_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits_default -> try2_rem_default (66 -> 64)
+     | (location = try2_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits_default -> try2_waits_default (66 -> 66)
+     | (location = try2_waits_default & (true) & next(location) = try2_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits_default -> try2_rem1_default (66 -> 68)
+     | (location = try2_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = try2_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits_default -> try2_waits_default (66 -> 66)
+     | (location = try2_waits_default & (true) & next(location) = try2_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_cs_default -> rem2_cs_default (67 -> 76)
+     | (location = try2_cs_default & fischer_agent_1_x >= b & next(location) = rem2_cs_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_cs_default -> try2_try2_default (67 -> 71)
+     | (location = try2_cs_default & g = 0.0 & next(location) = try2_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_cs_default -> try2_cs_default (67 -> 67)
+     | (location = try2_cs_default & (true) & next(location) = try2_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_rem1_default -> rem2_rem1_default (68 -> 77)
+     | (location = try2_rem1_default & fischer_agent_1_x >= b & next(location) = rem2_rem1_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_rem1_default -> try2_try1_default (68 -> 69)
+     | (location = try2_rem1_default & v = 0.0 & next(location) = try2_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_rem1_default -> try2_rem_default (68 -> 64)
+     | (location = try2_rem1_default & v = 1.0 & next(location) = try2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_rem1_default -> try2_rem1_default (68 -> 68)
+     | (location = try2_rem1_default & (true) & next(location) = try2_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_try1_default -> rem2_try1_default (69 -> 78)
+     | (location = try2_try1_default & fischer_agent_1_x >= b & next(location) = rem2_try1_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_try1_default -> try2_waits1_default (69 -> 70)
+     | (location = try2_try1_default & (true) & next(location) = try2_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_try1_default -> try2_try1_default (69 -> 69)
+     | (location = try2_try1_default & (true) & next(location) = try2_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_waits1_default -> rem2_waits1_default (70 -> 79)
+     | (location = try2_waits1_default & fischer_agent_1_x >= b & next(location) = rem2_waits1_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits1_default -> try2_rem_default (70 -> 64)
+     | (location = try2_waits1_default & g > fischer_agent_2_i & next(location) = try2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits1_default -> try2_rem_default (70 -> 64)
+     | (location = try2_waits1_default & g < fischer_agent_2_i & next(location) = try2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits1_default -> try2_cs_default (70 -> 67)
+     | (location = try2_waits1_default & g = fischer_agent_2_i & next(location) = try2_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_waits1_default -> try2_waits1_default (70 -> 70)
+     | (location = try2_waits1_default & (true) & next(location) = try2_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_try2_default -> rem2_try2_default (71 -> 80)
+     | (location = try2_try2_default & fischer_agent_1_x >= b & next(location) = rem2_try2_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_try2_default -> try2_rem2_default (71 -> 72)
+     | (location = try2_try2_default & fischer_agent_2_x >= b & next(location) = try2_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_try2_default -> try2_try2_default (71 -> 71)
+     | (location = try2_try2_default & (true) & next(location) = try2_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- try2_rem2_default -> rem2_rem2_default (72 -> 81)
+     | (location = try2_rem2_default & fischer_agent_1_x >= b & next(location) = rem2_rem2_default & next(v) = 0.0 & next(fischer_agent_1_x) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- try2_rem2_default -> try2_rem2_default (72 -> 72)
+     | (location = try2_rem2_default & (true) & next(location) = try2_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_rem_default -> rem2_try_default (73 -> 74)
+     | (location = rem2_rem_default & g = 0.0 & next(location) = rem2_try_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_rem_default -> rem2_rem_default (73 -> 73)
+     | (location = rem2_rem_default & (true) & next(location) = rem2_rem_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_try_default -> rem2_waits_default (74 -> 75)
+     | (location = rem2_try_default & (true) & next(location) = rem2_waits_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_try_default -> rem2_try_default (74 -> 74)
+     | (location = rem2_try_default & (true) & next(location) = rem2_try_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_waits_default -> rem2_rem_default (75 -> 73)
+     | (location = rem2_waits_default & g < fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits_default -> rem2_rem_default (75 -> 73)
+     | (location = rem2_waits_default & g > fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits_default -> rem2_waits_default (75 -> 75)
+     | (location = rem2_waits_default & (true) & next(location) = rem2_waits_default & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(v) = v  & next(fischer_agent_2_x) = fischer_agent_2_x & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits_default -> rem2_rem1_default (75 -> 77)
+     | (location = rem2_waits_default & g = fischer_agent_2_i & fischer_agent_2_x >= b & next(location) = rem2_rem1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits_default -> rem2_waits_default (75 -> 75)
+     | (location = rem2_waits_default & (true) & next(location) = rem2_waits_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_cs_default -> rem2_try2_default (76 -> 80)
+     | (location = rem2_cs_default & g = 0.0 & next(location) = rem2_try2_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_cs_default -> rem2_cs_default (76 -> 76)
+     | (location = rem2_cs_default & (true) & next(location) = rem2_cs_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_rem1_default -> rem2_try1_default (77 -> 78)
+     | (location = rem2_rem1_default & v = 0.0 & next(location) = rem2_try1_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_rem1_default -> rem2_rem_default (77 -> 73)
+     | (location = rem2_rem1_default & v = 1.0 & next(location) = rem2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_rem1_default -> rem2_rem1_default (77 -> 77)
+     | (location = rem2_rem1_default & (true) & next(location) = rem2_rem1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_try1_default -> rem2_waits1_default (78 -> 79)
+     | (location = rem2_try1_default & (true) & next(location) = rem2_waits1_default & next(v) = 1.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_try1_default -> rem2_try1_default (78 -> 78)
+     | (location = rem2_try1_default & (true) & next(location) = rem2_try1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_waits1_default -> rem2_rem_default (79 -> 73)
+     | (location = rem2_waits1_default & g > fischer_agent_2_i & next(location) = rem2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits1_default -> rem2_rem_default (79 -> 73)
+     | (location = rem2_waits1_default & g < fischer_agent_2_i & next(location) = rem2_rem_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits1_default -> rem2_cs_default (79 -> 76)
+     | (location = rem2_waits1_default & g = fischer_agent_2_i & next(location) = rem2_cs_default & next(fischer_agent_2_x) = 0.0 & next(fischer_agent_1_x) = fischer_agent_1_x  & next(fischer_agent_1_i) = fischer_agent_1_i & next(g) = g  & next(v) = v & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_waits1_default -> rem2_waits1_default (79 -> 79)
+     | (location = rem2_waits1_default & (true) & next(location) = rem2_waits1_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_try2_default -> rem2_rem2_default (80 -> 81)
+     | (location = rem2_try2_default & fischer_agent_2_x >= b & next(location) = rem2_rem2_default & next(v) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(g) = g & next(fischer_agent_2_i) = fischer_agent_2_i  &(next(clock) = clock)) 
+
+  -- rem2_try2_default -> rem2_try2_default (80 -> 80)
+     | (location = rem2_try2_default & (true) & next(location) = rem2_try2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_rem2_default -> rem2_rem2_default (81 -> 81)
+     | (location = rem2_rem2_default & (true) & next(location) = rem2_rem2_default & next(clock) = clock & next(g) = 2.0  & next(fischer_agent_1_x) = fischer_agent_1_x & next(fischer_agent_1_i) = fischer_agent_1_i  & next(v) = v & next(fischer_agent_2_x) = fischer_agent_2_x  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+
+  -- rem2_rem2_default -> rem_rem_default (81 -> 1)
+     | (location = rem2_rem2_default & fischer_agent_1_x >= b & fischer_agent_2_x >= b & true & next(location) = rem_rem_default & next(fischer_agent_1_x) = 0.0 & next(fischer_agent_2_x) = 0.0  & next(clock) = clock & next(g) = 0.0  & next(fischer_agent_1_i) = fischer_agent_1_i & next(v) = v  &(next(fischer_agent_2_i) = fischer_agent_2_i)) 
+  ;
+
+INIT
+  location = rem_rem_default  & fischer_agent_1_x = 0.0 & fischer_agent_1_i = 1.0 & g = 0.0 & a = 1.0 & b = 1.0 & rate = 1.0 & fischer_agent_2_x = 0.0 & fischer_agent_2_i = 2.0 & v = 0.0 & clock = 0.0;
+
+INVARSPEC 
+  !(location = cs_cs_default & fischer_agent_1_x >= 0.0 & fischer_agent_2_x >= 0.0);

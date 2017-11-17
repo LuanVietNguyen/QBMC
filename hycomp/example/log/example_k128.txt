@@ -1,0 +1,172 @@
+*** This is hycomp 1.1.0 (compiled on Thu Oct 23 19:08:40 2014)
+*** Copyright (c) 2014, Fondazione Bruno Kessler
+
+*** For more information on hycomp see https://es.fbk.eu/tools/hycomp
+*** or email to <hycomp@list.fbk.eu>.
+*** Please report bugs at not available
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <hycomp@list.fbk.eu>.
+
+*** This version of hycomp is linked to NuSMV 2.5.trunk.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Copyright (C) 2010-2014, Fondazione Bruno Kessler
+
+*** This version of hycomp is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of hycomp is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of hycomp is linked to MathSAT
+*** Copyright (C) 2014 by Fondazione Bruno Kessler
+*** Copyright (C) 2014 by University of Trento
+*** See http://mathsat.fbk.eu
+
+*** This version of hycomp is linked to LAPACK
+*** Copyright (C) 1992-2011 The University of Tennessee and The University
+***                         of Tennessee Research Foundation.
+***                         All rights reserved.
+*** Copyright (C) 2000-2011 The University of California Berkeley.
+***                         All rights reserved.
+*** Copyright (C) 2006-2012 The University of Colorado Denver.
+***                         All rights reserved.
+*** See http://www.netlib.org/lapack/
+
+Defining new environment variable "_hycomp_disable_conv_check"
+elapse: 0.02 seconds, total: 0.02 seconds
+-- no proof or counter-example found with bound 0  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 1  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 2  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 3  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 4  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 5  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 6  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 7  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 8  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 9  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 10  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 11  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 12  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 13  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 14  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 15  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 16  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 17  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 18  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 19  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 20  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 21  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 22  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 23  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 24  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 25  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 26  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 27  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 28  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 29  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 30  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 31  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 32  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 33  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 34  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 35  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 36  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 37  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 38  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 39  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 40  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 41  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 42  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 43  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 44  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 45  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 46  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 47  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 48  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 49  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 50  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 51  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 52  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 53  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 54  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 55  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 56  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 57  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 58  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 59  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 60  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 61  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 62  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 63  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 64  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 65  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 66  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 67  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 68  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 69  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 70  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 71  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 72  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 73  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 74  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 75  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 76  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 77  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 78  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 79  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 80  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 81  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 82  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 83  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 84  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 85  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 86  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 87  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 88  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 89  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 90  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 91  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 92  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 93  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 94  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 95  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 96  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 97  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 98  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 99  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 100  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 101  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 102  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 103  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 104  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 105  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 106  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 107  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 108  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 109  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 110  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 111  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 112  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 113  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 114  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 115  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 116  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 117  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 118  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 119  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 120  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 121  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 122  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 123  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 124  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 125  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 126  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 127  for invariant !(location = locB & x < 2.5) IN instance
+-- no proof or counter-example found with bound 128  for invariant !(location = locB & x < 2.5) IN instance
+-- invariant !(location = locB & x < 2.5) IN instance is unknown
+--  no proof or counter-example found with bound 128
+Exit [0]
+0.38 user, 0.07 system, 1.02 elapsed -- Max VSize = 131356KB, Max RSS = 106968KB

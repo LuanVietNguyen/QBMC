@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="agent">
+    <param name="x" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="rate1" type="real" local="false" d1="1" d2="1" dynamics="const" />
+    <param name="rate2" type="real" local="false" d1="1" d2="1" dynamics="const" />
+    <param name="AB" type="label" local="false" />
+    <param name="BA" type="label" local="false" />
+    <location id="1" name="locA" x="249.0" y="227.0" width="154.0" height="98.0">
+      <invariant>x &lt;= 5</invariant>
+      <flow>x' == rate1</flow>
+    </location>
+    <location id="3" name="locB" x="666.0" y="232.0" width="158.0" height="98.0">
+      <invariant>x &lt;= 10</invariant>
+      <flow>x' == rate2</flow>
+    </location>
+    <transition source="1" target="3">
+      <label>AB</label>
+      <guard>x &gt;= 2.5</guard>
+      <labelposition x="-51.0" y="-101.0" width="116.0" height="92.0" />
+      <middlepoint x="473.5" y="142.0" />
+    </transition>
+    <transition source="3" target="1">
+      <label>BA</label>
+      <guard>x &gt;= 10</guard>
+      <assignment>x:=0</assignment>
+      <labelposition x="-74.0" y="22.0" width="152.0" height="96.0" />
+      <middlepoint x="471.5" y="290.0" />
+    </transition>
+  </component>
+  <component id="sys1">
+    <param name="x" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="rate1" type="real" local="false" d1="1" d2="1" dynamics="const" controlled="true" />
+    <param name="rate2" type="real" local="false" d1="1" d2="1" dynamics="const" controlled="true" />
+    <param name="AB" type="label" local="false" />
+    <param name="BA" type="label" local="false" />
+    <bind component="agent" as="agent_1" x="415.0" y="247.0">
+      <map key="x">x</map>
+      <map key="rate1">rate1</map>
+      <map key="rate2">rate2</map>
+      <map key="AB">AB</map>
+      <map key="BA">BA</map>
+    </bind>
+  </component>
+</sspaceex>
+
